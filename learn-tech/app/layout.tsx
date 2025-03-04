@@ -36,13 +36,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-       
-        <Navbar tooglebar={()=>setIsOpen(!isToogleBarOpen)}/>
+       <div className="">
+          <Navbar tooglebar={()=>setIsOpen(!isToogleBarOpen)}/>
 
-        {/* Sidebar & Main Content */}
+          </div>
+          {/* Sidebar & Main Content */}
         <div className="flex">
           <Sidebar isOpen={isToogleBarOpen} />
-          <main className="md:ml-64 p-6 w-full mt-12">{children}</main>
+          <main className="md:ml-64 p-6 w-full mt-32">{children}</main>
         </div>
       </body>
     </html>
