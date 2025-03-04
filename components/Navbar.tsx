@@ -1,31 +1,34 @@
 import Link from "next/link";
 import Image from "next/image";
 
+// Define the props interface
 interface NavbarProps {
-  toggleBar: () => void; // Explicitly define the function type
+  togglebar: () => void; // Function that takes no arguments and returns void
 }
 
-const Navbar: React.FC<NavbarProps> = ({ toggleBar }) => {
+const Navbar = ({ togglebar }: NavbarProps) => {
   return (
     <nav className="w-full fixed bg-gray-800 text-white">
-      <div className="container mx-auto flex justify-between items-center p-4">
-        <div className="flex space-x-10 items-center">
-          {/* Mobile Menu Toggle Button */}
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="flex space-x-10">
           <button
             className="md:hidden p-2 hover:bg-gray-700 rounded"
-            onClick={toggleBar}
+            onClick={togglebar} // Fixed spelling here
           >
-            <Image src="/menu.png" width={40} height={40} alt="Hamburger" />
+            <Image
+              className="md:hidden"
+              src="/menu.png"
+              width={70}
+              height={50}
+              alt="Hamburger"
+            />
           </button>
-
-          {/* Logo */}
-          <Link href="/">
-            <Image src="/logo.png" height={80} width={80} alt="Logo" />
-          </Link>
+          <button className="">
+            <Image src={"/logo.png"} height={120} width={120} alt="logo" />
+          </button>
         </div>
 
-        {/* Navigation Links (Hidden on Mobile) */}
-        <ul className="hidden md:flex space-x-6">
+        <ul className="hidden md:flex space-x-4">
           <li>
             <Link href="/" className="hover:text-gray-300">
               Home
