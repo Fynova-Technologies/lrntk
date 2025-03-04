@@ -1,26 +1,45 @@
 import Link from "next/link";
 import Image from "next/image";
 
+interface NavbarProps {
+  toggleBar: () => void; // Explicitly define the function type
+}
 
-
-const Navbar = ({tooglebar}) => {
+const Navbar: React.FC<NavbarProps> = ({ toggleBar }) => {
   return (
     <nav className="w-full fixed bg-gray-800 text-white">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className=" flex space-x-10">
-          <button className="md:hidden p-2 hover:bg-gray-700 rounded" onClick={tooglebar}><Image className="md:hidden" src="/menu.png" width={70} height={50} alt="Hamburger" /></button>
-          <button className=""><Image src={'/logo.png'} height={120} width={120} alt="logo" /></button>
+      <div className="container mx-auto flex justify-between items-center p-4">
+        <div className="flex space-x-10 items-center">
+          {/* Mobile Menu Toggle Button */}
+          <button
+            className="md:hidden p-2 hover:bg-gray-700 rounded"
+            onClick={toggleBar}
+          >
+            <Image src="/menu.png" width={40} height={40} alt="Hamburger" />
+          </button>
+
+          {/* Logo */}
+          <Link href="/">
+            <Image src="/logo.png" height={80} width={80} alt="Logo" />
+          </Link>
         </div>
 
-        <ul className=" hidden md:flex   space-x-4">
+        {/* Navigation Links (Hidden on Mobile) */}
+        <ul className="hidden md:flex space-x-6">
           <li>
-            <Link href="/" className="hover:text-gray-300 ">Home</Link>
+            <Link href="/" className="hover:text-gray-300">
+              Home
+            </Link>
           </li>
           <li>
-            <Link href="/about" className="hover:text-gray-300">About</Link>
+            <Link href="/about" className="hover:text-gray-300">
+              About
+            </Link>
           </li>
           <li>
-            <Link href="/contact" className="hover:text-gray-300">Contact</Link>
+            <Link href="/contact" className="hover:text-gray-300">
+              Contact
+            </Link>
           </li>
         </ul>
       </div>
