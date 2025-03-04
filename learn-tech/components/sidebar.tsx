@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
-const Sidebar = () => {
+const Sidebar = ({isOpen}) => {
   const [openSections, setOpenSections] = useState({ docs: true });
 
   const toggleSection = (section) => {
@@ -12,16 +12,19 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="w-64 h-screen bg-gray-900 text-white fixed p-4">
-      <h2 className="text-xl font-bold mb-4">Docs Sidebar</h2>
-
+    <aside className={`
+      fixed left-0 top-24 h-screen bg-gray-900 text-white p-4 
+      w-64 transform transition-transform duration-300 ease-in-out 
+      ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
+      md:translate-x-0 z-50
+    `}>
       {/* Docs Section */}
       <div>
         <button
           className="flex justify-between w-full text-left p-2 hover:bg-gray-700 rounded"
           onClick={() => toggleSection("docs")}
         >
-          <span>📖 Documentation</span>
+          <span>📖 HTML Tutorial</span>
           {openSections.docs ? (
             <ChevronDownIcon className="w-5 h-5" />
           ) : (
@@ -33,12 +36,12 @@ const Sidebar = () => {
           <ul className="ml-4 mt-2 space-y-2">
             <li>
               <Link href="/docs/introduction" className="block p-2 hover:bg-gray-700 rounded">
-                📜 Introduction
+                HTML Introduction
               </Link>
             </li>
             <li>
-              <Link href="/docs/setup" className="block p-2 hover:bg-gray-700 rounded">
-                🛠 Setup Guide
+              <Link href="/docs/basics" className="block p-2 hover:bg-gray-700 rounded">
+                HTML Basics
               </Link>
             </li>
           </ul>
