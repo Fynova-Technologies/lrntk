@@ -1,0 +1,79 @@
+  {
+    "sections": [
+      {
+        "id": 1,
+        "title": "HTML INTRO",
+        "children": [
+            {
+                "type": "text",
+                "content": "HTML (HyperText Markup Language) is the standard language used to create and design web pages. It provides the structure of a webpage using tags and elements. Without HTML, web browsers wouldn't know how to display content properly. HTML organizes text, images, links, and other elements on a webpage.A web browser (like Chrome, Firefox, or Edge) reads an HTML file and displays it as a webpage. HTML uses tags to define different parts of the content (like headings, paragraphs, images, and links). The basic structure of an HTML document looks like this"
+              },
+              {
+                "type": "code",
+                "language": "html",
+                "content": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>My HTML JOURNEY</title>\n  </head>\n  <body>\n    <h1>Hello World</h1>\n    <p>A Sample of The website to learn HTML</p>\n  </body>\n</html>"
+              },
+              {
+                "type": "list",
+                "title": "Breaking Down the Code",
+                "items": [
+                  "!DOCTYPE html → Tells the browser that this is an HTML5 document.",
+                  "html → The main container for the webpage.",
+                  "head → Contains important information like the page title (not visible on the page).",
+                  "title → Sets the title that appears on the browser tab.",
+                  "body → Contains the actual content of the page.",
+                  "h1 → A heading (bigger text to highlight important information).",
+                  "p → A paragraph (used for writing normal text)."
+                ]
+              },
+              {
+                "type": "example",
+                "text": "This is how your Html looks like"
+              },
+              {
+                "type": "image",
+                "url": "/Screenshot.png",
+                "alt": "An example HTML webpage"
+              }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "HTML Basic",
+        "children": [
+            {
+                "type": "text",
+                "content": "HTML Basic (HyperText Markup Language) is the standard language used to create and design web pages. It provides the structure of a webpage using tags and elements. Without HTML, web browsers wouldn't know how to display content properly. HTML organizes text, images, links, and other elements on a webpage.A web browser (like Chrome, Firefox, or Edge) reads an HTML file and displays it as a webpage. HTML uses tags to define different parts of the content (like headings, paragraphs, images, and links). The basic structure of an HTML document looks like this"
+              },
+              {
+                "type": "code",
+                "language": "html",
+                "content": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>My HTML JOURNEY</title>\n  </head>\n  <body>\n    <h1>Hello World</h1>\n    <p>A Sample of The website to learn HTML</p>\n  </body>\n</html>"
+              },
+              {
+                "type": "list",
+                "title": "Breaking Down the Code Basic",
+                "items": [
+                  "!DOCTYPE html → Tells the browser that this is an HTML5 document.",
+                  "html → The main container for the webpage.",
+                  "head → Contains important information like the page title (not visible on the page).",
+                  "title → Sets the title that appears on the browser tab.",
+                  "body → Contains the actual content of the page.",
+                  "h1 → A heading (bigger text to highlight important information).",
+                  "p → A paragraph (used for writing normal text)."
+                ]
+              },
+              {
+                "type": "example",
+                "text": "This is Basic how your Html looks like"
+              },
+              {
+                "type": "image",
+                "url": "/Screenshot.png",
+                "alt": "An example HTML webpage"
+              }
+        ]
+      }
+    ]
+  }
+  
