@@ -1,7 +1,7 @@
   {
     "sections": [
       {
-        "id": 1,
+        "fk_id": 1,
         "title": "HTML INTRO",
         "children": [
             {
@@ -38,7 +38,7 @@
         ]
       },
       {
-        "id": 2,
+        "fk_id": 2,
         "title": "HTML Basic",
         "children": [
             {

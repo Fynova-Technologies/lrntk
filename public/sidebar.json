@@ -1,0 +1,36 @@
+{
+   "sidebar":[
+        {
+        "id":1,
+        "dropdown_title":"HTML TUTORIAL",
+        "contents":[
+            {
+                "pk_id":1,
+                "child_title":"HTML Introduction"
+            },
+
+            {
+                "pk_id":2,
+                "child_title":"HTML Basics"
+            }
+        
+        ]
+        },
+        {
+            "id":2,
+            "dropdown_title":"HTML Advance",
+            "contents":[
+                {
+                    "pk_id":1,
+                    "child_title":"HTML Introduction"
+                },
+    
+                {
+                    "pk_id":2,
+                    "child_title":"HTML Basics"
+                }
+            
+            ]
+            }
+   ]
+}
