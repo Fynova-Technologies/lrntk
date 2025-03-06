@@ -1,5 +1,9 @@
 {
-  "/docs/basics/page": "app/docs/basics/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/docs/introduction/page": "app/docs/introduction/page.js"
+  "/about/page": "app/about/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/docs/basics/page": "app/docs/basics/page.js",
+  "/docs/introduction/page": "app/docs/introduction/page.js",
+  "/page": "app/page.js"
 }

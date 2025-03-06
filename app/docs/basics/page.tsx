@@ -18,7 +18,7 @@ interface Child {
 }
 
 interface Section {
-  id: number;
+  fk_id: number;
   title: string;
   children: Child[];
 }
@@ -35,7 +35,7 @@ export default function Setup() {
     fetch("/html_intro.json")
       .then((response) => response.json())
       .then((data:ApiResponse) => {
-        const foundSection = data.sections.find((sec:Section) => sec.id === 2);
+        const foundSection = data.sections.find((sec:Section) => sec.fk_id === 2);
         setContent(foundSection || null)
       }
     )
