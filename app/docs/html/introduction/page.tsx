@@ -6,6 +6,9 @@ import Image from 'next/image';
 import { Suspense, useState, useEffect } from 'react';
 import { useRouter } from 'next/compat/router';
 import { useSearchParams } from 'next/navigation';
+import Sidebar from "@/components/sidebar";
+import Link from 'next/link';
+
 
 interface Child {
   type: string;
@@ -28,19 +31,95 @@ interface ApiResponse {
   sections: Section[];
 }
 
+interface NavigationProps {
+  currentId: number;
+  content: ApiResponse; // Define the type for content
+}
+
 // Move Search into a separate component wrapped with Suspense
 function SearchComponent({ onPkIdFetched }: { onPkIdFetched: (pkId: string | null) => void }) {
   const searchParams = useSearchParams();
   const pk_id = searchParams.get('pk_id');
   useEffect(() => {
     onPkIdFetched(pk_id);
+    
   }, [pk_id, onPkIdFetched]);
   return null; // This component doesn't render anything
 }
 
+
+function Navigation({ currentId , content }:  NavigationProps) {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  useEffect(() => {
+    const index = content.sections.findIndex((content) => content.fk_id === currentId);
+    if (index !== -1) {
+      setCurrentIndex(index); // Set the current index
+    }
+  }, [currentId,content.sections]);
+
+  const handlePrevious = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentIndex < content.sections.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+
+return(
+  <div className='flex justify-between w-full gap-4'>
+      {/* Previous Button */}
+      {currentIndex > 0 && (
+    <Link
+    href={
+    {
+      pathname: '/docs/html/introduction',
+      query: { pk_id: content.sections[currentIndex-1].fk_id },
+    }}
+    className="block hover:bg-gray-700 rounded"
+  >    
+    <button
+      onClick={handlePrevious}
+      className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+    >
+      Previous
+    </button>
+    </Link>
+  )}
+
+{currentIndex < content.sections.length && (
+  <Link
+  href={
+  {
+    pathname: '/docs/html/introduction',
+    query: { pk_id: content.sections[currentIndex+1].fk_id },
+  }}
+  className="block hover:bg-gray-700 rounded"
+>    
+    <button
+      onClick={handleNext}
+      className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+    >
+      Next
+    </button>
+    </Link>
+  )}
+  </div>
+)
+}
+
+
 function IntroductionPage({ pkId }: { pkId: string | null }) {
   const router = useRouter();
   const [content, setContent] = useState<Section | null>(null);
+  const [isToggleBarOpen, setIsOpen] = useState(false);
+  const [sectioncontent, setSecContent] = useState<ApiResponse>({ sections: [] }); // Initialize with default value
+
 
   useEffect(() => {
     if (router && !router.isReady) {
@@ -51,11 +130,13 @@ function IntroductionPage({ pkId }: { pkId: string | null }) {
         .then((response) => response.json())
         .then((data: ApiResponse) => {
           const foundSection = data.sections.find((sec: Section) => sec.fk_id === parseInt(pkId as string));
+          setSecContent(data);
           setContent(foundSection || null);
+          setIsOpen(!isToggleBarOpen)
         })
         .catch((error) => console.error('Error fetching content:', error));
     }
-  }, [router, pkId]);
+  }, [router, pkId,isToggleBarOpen]);
 
   if (!content) {
     return <p>Loading...</p>;
@@ -63,6 +144,12 @@ function IntroductionPage({ pkId }: { pkId: string | null }) {
 
   return (
     <div className="html-intro">
+      <div>
+      <Sidebar isOpen={isToggleBarOpen} />
+
+      </div>  
+
+      <div>
       <h1 className="text-4xl font-bold">{content.title}</h1>
       <hr className="my-4 border-gray-700" />
 
@@ -148,6 +235,10 @@ function IntroductionPage({ pkId }: { pkId: string | null }) {
           }
         })}
       </Suspense>
+      </div>
+      <div>
+        <Navigation currentId={content.fk_id} content={sectioncontent}/>
+      </div>
     </div>
   );
 }

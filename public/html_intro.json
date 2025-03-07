@@ -1,79 +1,481 @@
-  {
-    "sections": [
-      {
-        "fk_id": 1,
-        "title": "HTML INTRO",
-        "children": [
-            {
-                "type": "text",
-                "content": "HTML (HyperText Markup Language) is the standard language used to create and design web pages. It provides the structure of a webpage using tags and elements. Without HTML, web browsers wouldn't know how to display content properly. HTML organizes text, images, links, and other elements on a webpage.A web browser (like Chrome, Firefox, or Edge) reads an HTML file and displays it as a webpage. HTML uses tags to define different parts of the content (like headings, paragraphs, images, and links). The basic structure of an HTML document looks like this"
-              },
-              {
-                "type": "code",
-                "language": "html",
-                "content": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>My HTML JOURNEY</title>\n  </head>\n  <body>\n    <h1>Hello World</h1>\n    <p>A Sample of The website to learn HTML</p>\n  </body>\n</html>"
-              },
-              {
-                "type": "list",
-                "title": "Breaking Down the Code",
-                "items": [
-                  "!DOCTYPE html → Tells the browser that this is an HTML5 document.",
-                  "html → The main container for the webpage.",
-                  "head → Contains important information like the page title (not visible on the page).",
-                  "title → Sets the title that appears on the browser tab.",
-                  "body → Contains the actual content of the page.",
-                  "h1 → A heading (bigger text to highlight important information).",
-                  "p → A paragraph (used for writing normal text)."
-                ]
-              },
-              {
-                "type": "example",
-                "text": "This is how your Html looks like"
-              },
-              {
-                "type": "image",
-                "url": "/Screenshot.png",
-                "alt": "An example HTML webpage"
-              }
-        ]
-      },
-      {
-        "fk_id": 2,
-        "title": "HTML Basic",
-        "children": [
-            {
-                "type": "text",
-                "content": "HTML Basic (HyperText Markup Language) is the standard language used to create and design web pages. It provides the structure of a webpage using tags and elements. Without HTML, web browsers wouldn't know how to display content properly. HTML organizes text, images, links, and other elements on a webpage.A web browser (like Chrome, Firefox, or Edge) reads an HTML file and displays it as a webpage. HTML uses tags to define different parts of the content (like headings, paragraphs, images, and links). The basic structure of an HTML document looks like this"
-              },
-              {
-                "type": "code",
-                "language": "html",
-                "content": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>My HTML JOURNEY</title>\n  </head>\n  <body>\n    <h1>Hello World</h1>\n    <p>A Sample of The website to learn HTML</p>\n  </body>\n</html>"
-              },
-              {
-                "type": "list",
-                "title": "Breaking Down the Code Basic",
-                "items": [
-                  "!DOCTYPE html → Tells the browser that this is an HTML5 document.",
-                  "html → The main container for the webpage.",
-                  "head → Contains important information like the page title (not visible on the page).",
-                  "title → Sets the title that appears on the browser tab.",
-                  "body → Contains the actual content of the page.",
-                  "h1 → A heading (bigger text to highlight important information).",
-                  "p → A paragraph (used for writing normal text)."
-                ]
-              },
-              {
-                "type": "example",
-                "text": "This is Basic how your Html looks like"
-              },
-              {
-                "type": "image",
-                "url": "/Screenshot.png",
-                "alt": "An example HTML webpage"
-              }
-        ]
-      }
-    ]
-  }
-  
+{
+  "sections": [
+    {
+      "fk_id": 1,
+      "title": "HTML Introduction",
+      "children": [
+        {
+          "type": "text",
+          "content": "HTML (HyperText Markup Language) is the standard language used to create and design web pages. It provides the structure of a webpage using tags and elements. Without HTML, web browsers wouldn't know how to display content properly. HTML organizes text, images, links, and other elements on a webpage. A web browser (like Chrome, Firefox, or Edge) reads an HTML file and displays it as a webpage. HTML uses tags to define different parts of the content (like headings, paragraphs, images, and links)."
+        },
+        {
+          "type": "text",
+          "content": "HTML was created by Tim Berners-Lee in 1991. Since then, it has evolved through various versions with HTML5 being the latest standard. Today, HTML works alongside CSS (for styling) and JavaScript (for interactivity) to create modern web experiences."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>My First HTML Page</title>\n  </head>\n  <body>\n    <h1>Hello World</h1>\n    <p>This is my first HTML page!</p>\n  </body>\n</html>"
+        },
+        {
+          "type": "list",
+          "title": "Why Learn HTML?",
+          "items": [
+            "It's the foundation of web development",
+            "It's relatively easy to learn",
+            "It's used on every website",
+            "It's a gateway to other web technologies",
+            "It's essential for front-end development careers"
+          ]
+        },
+        {
+          "type": "text",
+          "content": "HTML files are saved with a .html extension and can be created using any text editor. You don't need special software to write HTML code, though specialized code editors can make the process easier with features like syntax highlighting and auto-completion."
+        },
+        {
+          "type": "example",
+          "text": "This is how your HTML page appears in a browser:"
+        },
+        {
+          "type": "image",
+          "url": "/html-intro-example.png",
+          "alt": "An example HTML webpage showing Hello World"
+        }
+      ]
+    },
+    {
+      "fk_id": 2,
+      "title": "HTML Basics",
+      "children": [
+        {
+          "type": "text",
+          "content": "HTML documents are made up of elements that define the structure and content of a webpage. Each element consists of a start tag, content, and an end tag. Tags are enclosed in angle brackets (<>). The basic structure of an HTML document includes doctype declaration, html, head, and body elements."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>Page Title</title>\n  </head>\n  <body>\n    <h1>My First Heading</h1>\n    <p>My first paragraph.</p>\n  </body>\n</html>"
+        },
+        {
+          "type": "list",
+          "title": "Breaking Down the Basic HTML Structure",
+          "items": [
+            "<!DOCTYPE html> → Declares the document type and HTML version",
+            "<html> → The root element that contains all other HTML elements",
+            "<head> → Contains meta-information about the document",
+            "<title> → Specifies the title shown in the browser tab",
+            "<body> → Contains the visible content of the webpage",
+            "<h1> → Defines a large heading",
+            "<p> → Defines a paragraph"
+          ]
+        },
+        {
+          "type": "text",
+          "content": "HTML elements can be nested (elements within elements). They should be properly nested, meaning they should be closed in the reverse order they were opened. Most HTML elements have an opening and closing tag, but some, called empty elements, only have an opening tag (e.g., <img>, <br>, <hr>)."
+        },
+        {
+          "type": "example",
+          "text": "Example of properly nested HTML elements:"
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<div>\n  <p>This is <strong>properly nested</strong> HTML.</p>\n</div>"
+        },
+        {
+          "type": "text",
+          "content": "HTML is not case-sensitive, but it's a best practice to write HTML tags in lowercase. HTML ignores extra whitespace in the code, but proper indentation helps make the code more readable."
+        },
+        {
+          "type": "list",
+          "title": "HTML Basic Rules",
+          "items": [
+            "Always close your tags",
+            "Tags are written in lowercase",
+            "Attribute values are in quotes",
+            "Proper nesting is important",
+            "Use proper indentation for readability"
+          ]
+        },
+        {
+          "type": "image",
+          "url": "/html-basics-example.png",
+          "alt": "Basic HTML structure visualization"
+        }
+      ]
+    },
+    {
+      "fk_id": 3,
+      "title": "HTML Elements",
+      "children": [
+        {
+          "type": "text",
+          "content": "HTML elements are the building blocks of HTML pages. Elements are defined by a start tag, some content, and an end tag. The HTML element refers to everything from the start tag to the end tag. Elements can have attributes that provide additional information about the element."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<tagname>Content goes here...</tagname>"
+        },
+        {
+          "type": "list",
+          "title": "Common HTML Elements",
+          "items": [
+            "<h1> to <h6> → Different sizes of headings",
+            "<p> → Paragraph",
+            "<a> → Hyperlink",
+            "<img> → Image",
+            "<ul>, <ol>, <li> → Lists",
+            "<div> → Division or section",
+            "<span> → Inline container",
+            "<table>, <tr>, <td> → Tables",
+            "<form>, <input>, <button> → Forms",
+            "<br> → Line break",
+            "<hr> → Horizontal rule"
+          ]
+        },
+        {
+          "type": "text",
+          "content": "HTML elements can be grouped into block-level and inline elements. Block-level elements start on a new line and take up the full width available (e.g., <div>, <h1>, <p>). Inline elements do not start on a new line and only take up as much width as necessary (e.g., <span>, <a>, <img>)."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<!-- Block-level element example -->\n<div>This div takes up the full width</div>\n\n<!-- Inline element example -->\n<p>This paragraph contains <span>an inline span</span> element.</p>"
+        },
+        {
+          "type": "text",
+          "content": "Nesting elements is a common practice in HTML. When nesting elements, make sure to close them in the correct order to maintain proper structure."
+        },
+        {
+          "type": "example",
+          "text": "Example of various HTML elements in action:"
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>HTML Elements Example</title>\n  </head>\n  <body>\n    <h1>Main Heading</h1>\n    <h2>Subheading</h2>\n    <p>This is a <strong>paragraph</strong> with <em>styled</em> text.</p>\n    <a href=\"https://example.com\">This is a link</a>\n    <br>\n    <img src=\"image.jpg\" alt=\"Example image\">\n    <hr>\n    <div>\n      <p>This is a paragraph inside a div.</p>\n    </div>\n  </body>\n</html>"
+        },
+        {
+          "type": "image",
+          "url": "/html-elements-example.png",
+          "alt": "Visualization of various HTML elements"
+        }
+      ]
+    },
+    {
+      "fk_id": 4,
+      "title": "HTML Attributes",
+      "children": [
+        {
+          "type": "text",
+          "content": "HTML attributes provide additional information about HTML elements. Attributes are always specified in the start tag and usually come in name/value pairs like name=\"value\". Different HTML elements can have different attributes, but some attributes like class, id, style, and title are available for most HTML elements."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<tagname attribute=\"value\">Content</tagname>"
+        },
+        {
+          "type": "list",
+          "title": "Common HTML Attributes",
+          "items": [
+            "id → Specifies a unique id for an element",
+            "class → Specifies one or more class names for an element",
+            "style → Specifies an inline CSS style for an element",
+            "title → Specifies extra information about an element (displayed as a tooltip)",
+            "src → Specifies the URL of an image, audio, or video file",
+            "href → Specifies the URL of a page the link goes to",
+            "alt → Specifies an alternative text for an image",
+            "width and height → Specify the width and height of elements like images",
+            "disabled → Specifies that an input element should be disabled",
+            "required → Specifies that an input field must be filled out"
+          ]
+        },
+        {
+          "type": "text",
+          "content": "HTML attributes are essential for accessibility, styling, scripting, and proper rendering of elements. For example, the 'alt' attribute provides text descriptions of images for screen readers, and the 'class' attribute allows you to target elements with CSS or JavaScript."
+        },
+        {
+          "type": "example",
+          "text": "Examples of HTML attributes in action:"
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<!-- Image with src, alt, width, and height attributes -->\n<img src=\"picture.jpg\" alt=\"A beautiful landscape\" width=\"500\" height=\"300\">\n\n<!-- Link with href and target attributes -->\n<a href=\"https://example.com\" target=\"_blank\">Visit Example.com</a>\n\n<!-- Paragraph with id, class, and style attributes -->\n<p id=\"intro\" class=\"highlight\" style=\"color: blue;\">This is a styled paragraph.</p>\n\n<!-- Input with type, name, placeholder, and required attributes -->\n<input type=\"text\" name=\"username\" placeholder=\"Enter your username\" required>"
+        },
+        {
+          "type": "text",
+          "content": "Boolean attributes are attributes that don't need a value. Their presence on an element represents the true value, and their absence represents the false value. Examples include 'disabled', 'checked', and 'required'."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<!-- Boolean attribute examples -->\n<input type=\"text\" disabled>\n<input type=\"checkbox\" checked>\n<input type=\"text\" required>"
+        },
+        {
+          "type": "image",
+          "url": "/html-attributes-example.png",
+          "alt": "Visualization of HTML attributes"
+        }
+      ]
+    },
+    {
+      "fk_id": 5,
+      "title": "HTML Headings",
+      "children": [
+        {
+          "type": "text",
+          "content": "HTML headings are defined with the <h1> to <h6> tags. <h1> defines the most important heading, while <h6> defines the least important heading. Headings are displayed in different sizes, with <h1> being the largest and <h6> being the smallest. Headings are important for both structure and SEO, as search engines use them to understand the content and hierarchy of your webpage."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<h1>This is heading 1</h1>\n<h2>This is heading 2</h2>\n<h3>This is heading 3</h3>\n<h4>This is heading 4</h4>\n<h5>This is heading 5</h5>\n<h6>This is heading 6</h6>"
+        },
+        {
+          "type": "text",
+          "content": "Browsers automatically add margins before and after headings. However, you can modify these margins using CSS. Headings should be used to create a clear hierarchical structure for your content, not just for making text bigger or bolder."
+        },
+        {
+          "type": "list",
+          "title": "Best Practices for HTML Headings",
+          "items": [
+            "Use only one <h1> per page, typically for the main title",
+            "Follow a logical hierarchy (don't skip heading levels)",
+            "Use headings to structure your content, not for styling",
+            "Keep headings concise and descriptive",
+            "Use CSS to style headings instead of using lower-level headings just for smaller text"
+          ]
+        },
+        {
+          "type": "example",
+          "text": "Example of proper heading hierarchy:"
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<!DOCTYPE html>\n<html>\n<head>\n  <title>HTML Headings Example</title>\n</head>\n<body>\n  <h1>Website Main Title</h1>\n  \n  <h2>First Section</h2>\n  <p>Introduction to the first section...</p>\n  \n  <h3>Subsection 1.1</h3>\n  <p>Details about subsection 1.1...</p>\n  \n  <h3>Subsection 1.2</h3>\n  <p>Details about subsection 1.2...</p>\n  \n  <h2>Second Section</h2>\n  <p>Introduction to the second section...</p>\n  \n  <h3>Subsection 2.1</h3>\n  <p>Details about subsection 2.1...</p>\n</body>\n</html>"
+        },
+        {
+          "type": "text",
+          "content": "Using CSS, you can style your headings to match your website's design while maintaining proper semantic structure. Always prioritize proper heading hierarchy for accessibility and SEO, even if you change the visual appearance with CSS."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<style>\nh1 {\n  color: navy;\n  font-size: 2.5em;\n}\nh2 {\n  color: teal;\n  font-size: 1.8em;\n}\nh3 {\n  color: maroon;\n  font-size: 1.5em;\n}\n</style>"
+        },
+        {
+          "type": "image",
+          "url": "/html-headings-example.png",
+          "alt": "Visual representation of HTML heading sizes"
+        }
+      ]
+    },
+    {
+      "fk_id": 6,
+      "title": "HTML Paragraphs",
+      "children": [
+        {
+          "type": "text",
+          "content": "HTML paragraphs are defined with the <p> tag. The <p> element represents a paragraph of text. Browsers automatically add some margin before and after each <p> element. Paragraphs are block-level elements, meaning they start on a new line and take up the full width available."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<p>This is a paragraph.</p>\n<p>This is another paragraph.</p>"
+        },
+        {
+          "type": "text",
+          "content": "HTML ignores extra spaces and line breaks in your source code. If you want to create line breaks within a paragraph, you can use the <br> tag. For larger gaps, you might want to use CSS margins or the <hr> tag to create a horizontal line."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<p>This is a paragraph.<br>This line starts after a line break.</p>\n\n<p>This is a paragraph.</p>\n<hr>\n<p>This paragraph is separated by a horizontal rule.</p>"
+        },
+        {
+          "type": "list",
+          "title": "Working with Text in Paragraphs",
+          "items": [
+            "Use <strong> or <b> for bold text",
+            "Use <em> or <i> for italic text",
+            "Use <mark> for highlighted text",
+            "Use <del> for deleted text",
+            "Use <ins> for inserted text",
+            "Use <sub> for subscript text",
+            "Use <sup> for superscript text",
+            "Use <small> for smaller text",
+            "Use <q> for short quotations",
+            "Use <blockquote> for longer quotations"
+          ]
+        },
+        {
+          "type": "example",
+          "text": "Example of text formatting within paragraphs:"
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<!DOCTYPE html>\n<html>\n<head>\n  <title>HTML Paragraphs Example</title>\n</head>\n<body>\n  <h1>Working with Paragraphs</h1>\n  \n  <p>This is a regular paragraph.</p>\n  \n  <p>This paragraph contains <strong>bold text</strong> and <em>italic text</em>.</p>\n  \n  <p>You can also use <mark>highlighted text</mark> to draw attention.</p>\n  \n  <p>This shows <del>deleted text</del> and <ins>inserted text</ins>.</p>\n  \n  <p>Chemical formulas use subscript: H<sub>2</sub>O</p>\n  \n  <p>Mathematical expressions use superscript: E = mc<sup>2</sup></p>\n  \n  <p><q>This is a short quotation</q> within a paragraph.</p>\n  \n  <blockquote>\n    <p>This is a longer quotation that takes up its own block and is usually indented.</p>\n  </blockquote>\n</body>\n</html>"
+        },
+        {
+          "type": "text",
+          "content": "The <pre> tag is useful for displaying text with preserved formatting, including spaces and line breaks. This is particularly useful for displaying code or poetry where spacing matters."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<pre>\nThis text maintains\n   its formatting,\n      including spaces\n         and line breaks.\n</pre>"
+        },
+        {
+          "type": "image",
+          "url": "/html-paragraphs-example.png",
+          "alt": "Examples of HTML paragraph formatting"
+        }
+      ]
+    },
+    {
+      "fk_id": 7,
+      "title": "HTML Formatting",
+      "children": [
+        {
+          "type": "text",
+          "content": "HTML provides several elements for formatting text, both for appearance and semantic meaning. Formatting elements highlight specific parts of text, change text appearance, and provide semantic information about text. While many formatting effects can be achieved with CSS, HTML formatting elements provide meaningful structure to your content."
+        },
+        {
+          "type": "list",
+          "title": "Text Formatting Elements",
+          "items": [
+            "<b> → Bold text without extra importance",
+            "<strong> → Bold text with strong importance",
+            "<i> → Italic text, typically for technical terms, foreign phrases, etc.",
+            "<em> → Emphasized text, typically displayed in italics",
+            "<mark> → Highlighted text",
+            "<small> → Smaller text",
+            "<del> → Deleted text, typically displayed with a strikethrough",
+            "<ins> → Inserted text, typically displayed underlined",
+            "<sub> → Subscript text",
+            "<sup> → Superscript text",
+            "<code> → Computer code text",
+            "<kbd> → Keyboard input text",
+            "<samp> → Sample output from a computer program",
+            "<var> → Variable in a mathematical expression or programming context",
+            "<pre> → Preformatted text (preserves spaces and line breaks)"
+          ]
+        },
+        {
+          "type": "text",
+          "content": "Semantic elements provide meaning beyond mere appearance. For instance, <strong> and <em> indicate importance and emphasis, respectively, which is useful for screen readers and search engines. Non-semantic elements like <b> and <i> only change appearance without adding meaning."
+        },
+        {
+          "type": "example",
+          "text": "Examples of text formatting:"
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<!DOCTYPE html>\n<html>\n<head>\n  <title>HTML Text Formatting</title>\n</head>\n<body>\n  <h1>Text Formatting in HTML</h1>\n  \n  <h2>Basic Formatting</h2>\n  <p>This is <b>bold text</b> and this is <strong>strongly important text</strong>.</p>\n  <p>This is <i>italic text</i> and this is <em>emphasized text</em>.</p>\n  <p>This is <small>smaller text</small> and this is <mark>highlighted text</mark>.</p>\n  <p>This is <del>deleted text</del> and this is <ins>inserted text</ins>.</p>\n  <p>This shows H<sub>2</sub>O and E = mc<sup>2</sup>.</p>\n  \n  <h2>Code and Programming Formatting</h2>\n  <p>The <code>print()</code> function in Python outputs text to the console.</p>\n  <p>Press <kbd>Ctrl + S</kbd> to save your document.</p>\n  <p>The program returned: <samp>Hello, World!</samp></p>\n  <p>We can calculate the area using the formula: A = π × <var>r</var><sup>2</sup></p>\n  \n  <h2>Preformatted Text</h2>\n  <pre>\nfunction greet(name) {\n    return \"Hello, \" + name + \"!\";\n}\n\nconsole.log(greet(\"World\"));\n  </pre>\n</body>\n</html>"
+        },
+        {
+          "type": "text",
+          "content": "Quotations and citations can be formatted using special HTML elements that provide proper semantic meaning to quoted content."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<p>According to Mozilla's website, <q cite=\"https://developer.mozilla.org/en-US/\">HTML is the standard markup language for creating web pages.</q></p>\n\n<blockquote cite=\"https://developer.mozilla.org/en-US/\">\n  <p>HTML (HyperText Markup Language) is the most basic building block of the Web. It defines the meaning and structure of web content.</p>\n</blockquote>\n\n<p>The HTML specification is maintained by the <cite>W3C (World Wide Web Consortium)</cite>.</p>"
+        },
+        {
+          "type": "text",
+          "content": "Abbreviations and acronyms can be marked up to provide expanded information when users hover over them."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<p>The <abbr title=\"World Health Organization\">WHO</abbr> was founded in 1948.</p>\n<p><dfn title=\"HyperText Markup Language\">HTML</dfn> is the standard markup language for creating web pages.</p>"
+        },
+        {
+          "type": "image",
+          "url": "/html-formatting-example.png",
+          "alt": "Examples of HTML text formatting"
+        }
+      ]
+    },
+    {
+      "fk_id": 8,
+      "title": "HTML Links",
+      "children": [
+        {
+          "type": "text",
+          "content": "HTML links, defined with the <a> tag, allow users to navigate between web pages. Links are a fundamental part of the web, connecting pages and resources together. The most important attribute of the <a> element is the href attribute, which specifies the destination of the link."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<a href=\"https://www.example.com\">Visit Example.com</a>"
+        },
+        {
+          "type": "list",
+          "title": "Types of Links",
+          "items": [
+            "External links → Link to other websites",
+            "Internal links → Link to pages within the same website",
+            "Email links → Open the user's email client",
+            "Phone links → Initiate a call on mobile devices",
+            "Anchor links → Navigate to specific sections within a page",
+            "Download links → Prompt the user to download a file",
+            "JavaScript links → Execute JavaScript code"
+          ]
+        },
+        {
+          "type": "text",
+          "content": "The target attribute specifies where to open the linked document. The most common values are '_self' (default, opens in the same tab) and '_blank' (opens in a new tab or window)."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<a href=\"https://www.example.com\" target=\"_blank\">Open in new tab</a>"
+        },
+        {
+          "type": "text",
+          "content": "Internal links connect to other pages within the same website. You can use relative paths for these links, which makes the code more maintainable."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<!-- Absolute path (full URL) -->\n<a href=\"https://www.mywebsite.com/about.html\">About Us</a>\n\n<!-- Relative path (same directory) -->\n<a href=\"about.html\">About Us</a>\n\n<!-- Relative path (subdirectory) -->\n<a href=\"pages/contact.html\">Contact Us</a>\n\n<!-- Relative path (parent directory) -->\n<a href=\"../index.html\">Home</a>"
+        },
+        {
+          "type": "text",
+          "content": "Anchor links allow you to navigate to specific sections within a webpage by referencing IDs."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<!-- Creating a section with an ID -->\n<h2 id=\"section2\">Section 2</h2>\n\n<!-- Linking to that section -->\n<a href=\"#section2\">Go to Section 2</a>\n\n<!-- Linking to a section on another page -->\n<a href=\"page.html#section3\">Go to Section 3 on another page</a>"
+        },
+        {
+          "type": "example",
+          "text": "Example of different types of links:"
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<!DOCTYPE html>\n<html>\n<head>\n  <title>HTML Links Example</title>\n</head>\n<body>\n  <h1 id=\"top\">HTML Links</h1>\n  \n  <h2>External Links</h2>\n  <p><a href=\"https://www.example.com\">Visit Example.com</a></p>\n  <p><a href=\"https://www.example.com\" target=\"_blank\">Visit Example.com in a new tab</a></p>\n  \n  <h2>Internal Links</h2>\n  <p><a href=\"about.html\">About Us</a></p>\n  <p><a href=\"contact.html\">Contact Us</a></p>\n  \n  <h2 id=\"section1\">Section 1</h2>\n  <p>This is section 1 content.</p>\n  \n  <h2 id=\"section2\">Section 2</h2>\n  <p>This is section 2 content.</p>\n  \n  <p><a href=\"#top\">Back to top</a></p>\n  \n  <h2>Special Links</h2>\n  <p><a href=\"mailto:info@example.com\">Send us an email</a></p>\n  <p><a href=\"tel:+1234567890\">Call us</a></p>\n  <p><a href=\"files/document.pdf\" download>Download PDF</a></p>\n  <p><a href=\"javascript:alert('Hello!')\">Click for JS alert</a></p>\n</body>\n</html>"
+        },
+        {
+          "type": "text",
+          "content": "You can style links using CSS to change their appearance. Different states of links can be styled using pseudo-classes."
+        },
+        {
+          "type": "code",
+          "language": "html",
+          "content": "<style>\n  /* Unvisited link */\n  a:link {\n    color: blue;\n    text-decoration: none;\n  }\n  /* Visited link */\n  a:visited {\n    color: purple;\n  }\n  /* Mouse over link */\n  a:hover {\n    color: red;\n    text-decoration: underline;\n  }\n  /* Selected link */\n  a:active {\n    color: green;\n  }\n</style>"
+        }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/sidebar";
+// import Sidebar from "@/components/sidebar";
 import Navbar from "@/components/Navbar";
 import { useState } from "react";
 
@@ -33,7 +33,7 @@ export default function RootLayout({
         </div>
         {/* Sidebar & Main Content */}
         <div className="flex">
-          <Sidebar isOpen={isToggleBarOpen} />
+          {/* <Sidebar isOpen={isToggleBarOpen} /> */}
           <main className="md:ml-64 p-6 w-full mt-32">{children}</main>
         </div>
       </body>

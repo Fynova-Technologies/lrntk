@@ -62,10 +62,11 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
           : "-translate-x-full pointer-events-none"
       } 
       md:translate-x-0 md:pointer-events-auto z-50
+      overflow-x-auto
     `}
     >
       {/* Docs Section */}
-      <div>
+      <div className="mb-32">
         {sideBarContents.map((sidebar,index)=>(
           <div key={index}>
           <button
@@ -88,10 +89,10 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
               <Link
                 href={
                 {
-                  pathname: '/docs/introduction',
+                  pathname: '/docs/html/introduction',
                   query: { pk_id: content.pk_id },
                 }}
-                className="block p-2 hover:bg-gray-700 rounded"
+                className="block hover:bg-gray-700 rounded"
               >
                 {content.child_title}
               </Link>
@@ -100,44 +101,7 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
           </ul>
         )}
         </div>
-
-       
-        
         ))}
-
-
-        {/* <button
-          className="flex justify-between w-full text-left p-2 hover:bg-gray-700 rounded"
-          onClick={() => toggleSection("docs")}
-        >
-          <span>📖 HTML Tutorial</span>
-          {openSections.docs ? (
-            <ChevronDownIcon className="w-5 h-5" />
-          ) : (
-            <ChevronRightIcon className="w-5 h-5" />
-          )}
-        </button>
-
-        {openSections.docs && (
-          <ul className="ml-4 mt-2 space-y-2">
-            <li>
-              <Link
-                href="/docs/introduction"
-                className="block p-2 hover:bg-gray-700 rounded"
-              >
-                HTML Introduction
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/docs/basics"
-                className="block p-2 hover:bg-gray-700 rounded"
-              >
-                HTML Basics
-              </Link>
-            </li>
-          </ul>
-        )} */}
       </div>
     </aside>
   );

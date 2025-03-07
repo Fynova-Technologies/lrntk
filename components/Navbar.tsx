@@ -3,7 +3,7 @@ import Image from "next/image";
 
 // Define the props interface
 interface NavbarProps {
-  togglebar: () => void; // Function that takes no arguments and returns void
+  togglebar: () => void; 
 }
 
 const Navbar = ({ togglebar }: NavbarProps) => {
@@ -13,7 +13,7 @@ const Navbar = ({ togglebar }: NavbarProps) => {
         <div className="flex space-x-10">
           <button
             className="md:hidden p-2 hover:bg-gray-700 rounded"
-            onClick={togglebar} // Fixed spelling here
+            onClick={togglebar} 
           >
             <Image
               className="md:hidden"
