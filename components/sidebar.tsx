@@ -67,18 +67,20 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
     `}
     >
 
-      <div className="w-64">
-        <SearchBar/>
-      </div>
+        <div className="w-64">
+          <SearchBar courses={sideBarContents} />
+        </div>
       {/* Docs Section */}
       <div className="mb-32">
         {sideBarContents.map((sidebar,index)=>(
+          
           <div key={index}>
           <button
           key={index}
           className="flex justify-between w-full text-left p-2 hover:bg-gray-700 rounded"
           onClick={() => toggleSection(sidebar.dropdown_title)}
         >
+          
           <span>📖 {sidebar.dropdown_title}</span>
           {openSections[sidebar.dropdown_title] ? (
             <ChevronDownIcon className="w-5 h-5" />
