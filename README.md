@@ -9,7 +9,7 @@
 ✅ **Hosting & Deployment:** Vercel (Frontend), Firebase Hosting (Future Backend)  
 
 ---
-
+ 
 ## **🔹 Version 1: Static Documentation & Tutorials (MVP)**  
 🚀 **Goal:** Establish a well-structured coding learning platform with high-quality documentation and tutorials using **Docusaurus + Next.js**.  
 
