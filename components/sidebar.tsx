@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import SearchBar from "./Search";
 
 // Define props type
 interface SidebarProps {
@@ -65,6 +66,10 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
       overflow-x-auto
     `}
     >
+
+      <div className="w-64">
+        <SearchBar/>
+      </div>
       {/* Docs Section */}
       <div className="mb-32">
         {sideBarContents.map((sidebar,index)=>(
