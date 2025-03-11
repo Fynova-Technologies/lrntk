@@ -77,7 +77,7 @@ const SearchBar: React.FC<SearchBarProps> =  ({courses})=>{
                   )}
               </div>
               <Image src={"/loupe.png"} onClick={handleOnClick}
-                     height={800} width={900} alt="Search"  className="bg-emerald-400 hover:bg-blue-300 hover:cursor-pointer p-2 rounded-3xl h-10 w-10 mx-2"/>
+                     height={800} width={900} alt="Search"  className="bg-sidebar-primary-foreground hover:bg-destructive-foreground hover:cursor-pointer p-2 rounded-3xl h-10 w-10 mx-2"/>
                 
             </div>
         </div>

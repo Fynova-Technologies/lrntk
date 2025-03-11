@@ -82,7 +82,7 @@ export function AppSidebar() {
                   pathname: '/docs/html/introduction',
                   query: { pk_id: content.pk_id },
                 }}
-                className="block hover:bg-gray-700 rounded">{content.child_title}</Link>
+                className="block hover:bg-secondary-foreground hover:text-primary-foreground  rounded p-1">{content.child_title}</Link>
                     </SidebarMenuSubItem>
                   </SidebarMenuSub>
                 </CollapsibleContent>
