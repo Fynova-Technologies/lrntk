@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { Input } from "./ui/input";
+
 
 
 interface SidebarContent {
@@ -55,11 +57,10 @@ const SearchBar: React.FC<SearchBarProps> =  ({courses})=>{
 
         <div className="w-full">
             <div className="flex items-center">
-                <input onChange={(e)=>{setQuery(e.target.value)}} type="text"
+                <Input onChange={(e)=>{setQuery(e.target.value)}} type="text"
                     placeholder="Search courses..."
-                    value={query} className={`mr-3 p-2 border-2 w-[150px]
-                    border-t-amber-50 rounded-2xl ${SearchIsOpen?"flex":"hidden"}`} >
-                </input>
+                    value={query} className={` ${SearchIsOpen?"flex":"hidden"} mx-2`} />
+                
                 <div className="overflow-y-auto ">
                   {filteredCourses.length > 0 && (
                     <ul className="absolute left-0 w-full max-h-44 m-10 bg-blue-600 border-gray-300 rounded-xl mt-1 shadow-lg overflow-y-scroll">
@@ -75,8 +76,9 @@ const SearchBar: React.FC<SearchBarProps> =  ({courses})=>{
                     </ul>
                   )}
               </div>
-                <Image src={"/loupe.png"} onClick={handleOnClick}
-                     height={800} width={900} alt="Search"  className="bg-emerald-400 hover:bg-blue-300 hover:cursor-pointer p-2 rounded-3xl h-10 w-10"/>
+              <Image src={"/loupe.png"} onClick={handleOnClick}
+                     height={800} width={900} alt="Search"  className="bg-emerald-400 hover:bg-blue-300 hover:cursor-pointer p-2 rounded-3xl h-10 w-10 mx-2"/>
+                
             </div>
         </div>
 

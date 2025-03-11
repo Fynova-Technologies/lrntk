@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ThemeToggle } from "./theme-toggler";
 
 // Define the props interface
 interface NavbarProps {
@@ -45,6 +46,9 @@ const Navbar = ({ togglebar }: NavbarProps) => {
             </Link>
           </li>
         </ul>
+        <div>
+          <ThemeToggle/>
+        </div>
       </div>
     </nav>
   );

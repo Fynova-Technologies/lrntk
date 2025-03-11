@@ -6,8 +6,11 @@ import Image from 'next/image';
 import { Suspense, useState, useEffect } from 'react';
 import { useRouter } from 'next/compat/router';
 import { useSearchParams } from 'next/navigation';
-import Sidebar from "@/components/sidebar";
+// import Sidebar from "@/components/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/appsidebar"
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 
 interface Child {
@@ -83,12 +86,12 @@ return(
     }}
     className="block hover:bg-gray-700 rounded"
   >    
-    <button
+    <Button
       onClick={handlePrevious}
-      className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      className="px-4 py-2"
     >
       Previous
-    </button>
+    </Button>
     </Link>
   )}
 
@@ -101,12 +104,12 @@ return(
   }}
   className="block hover:bg-gray-700 rounded"
 >    
-    <button
+    <Button
       onClick={handleNext}
-      className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      className=""
     >
       Next
-    </button>
+    </Button>
     </Link>
   )}
   </div>
@@ -145,11 +148,12 @@ function IntroductionPage({ pkId }: { pkId: string | null }) {
   return (
     <div className="html-intro">
       <div>
-      <Sidebar isOpen={isToggleBarOpen} />
-
-      </div>  
-
-      <div>
+                <SidebarProvider>
+                <AppSidebar />
+                    <div>
+                        {/* <Sidebar isOpen={true} /> */}
+                        <SidebarTrigger className='p-2 right-0'/>
+                        <div>
       <h1 className="text-4xl font-bold">{content.title}</h1>
       <hr className="my-4 border-gray-700" />
 
@@ -239,6 +243,11 @@ function IntroductionPage({ pkId }: { pkId: string | null }) {
       <div>
         <Navigation currentId={content.fk_id} content={sectioncontent}/>
       </div>
+
+                    </div> 
+                </SidebarProvider>
+      </div>
+      
     </div>
   );
 }

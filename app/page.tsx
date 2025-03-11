@@ -25,12 +25,7 @@ export default function Home() {
           <h1 className="font-white text-2xl">{content.card_Title}</h1>
           <a href={"/docs/html"}><button className="p-4 bg-blue-950 rounded-2xl">Start Tutorial</button></a>
       </div>
-      ))}
-      
-
-
-
-      
+      ))}  
     </div>
   );
 }

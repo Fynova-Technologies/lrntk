@@ -5,6 +5,8 @@ import "./globals.css";
 // import Sidebar from "@/components/sidebar";
 import Navbar from "@/components/Navbar";
 import { useState } from "react";
+import { ThemeProvider } from "@/components/theme-provider"
+// import Sidebar from "@/components/sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,18 +26,26 @@ export default function RootLayout({
   const [isToggleBarOpen, setIsOpen] = useState(false);
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="">
-          <Navbar togglebar={() => setIsOpen(!isToggleBarOpen)} />
-        </div>
-        {/* Sidebar & Main Content */}
-        <div className="flex">
-          {/* <Sidebar isOpen={isToggleBarOpen} /> */}
-          <main className="md:ml-64 p-6 w-full mt-32">{children}</main>
-        </div>
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            themes={['red','ligh','dark']}
+            disableTransitionOnChange
+        >
+            <Navbar togglebar={() => setIsOpen(!isToggleBarOpen)} />
+
+            {/* Sidebar & Main Content */}
+            <div className="flex">
+              {/* <Sidebar isOpen={isToggleBarOpen} /> */}
+              
+              <main className="md:ml-64 p-6 w-full mt-32"> {children}</main>
+            </div>
+        </ThemeProvider>
       </body>
     </html>
   );
