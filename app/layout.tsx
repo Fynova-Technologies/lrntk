@@ -34,7 +34,7 @@ export default function RootLayout({
             attribute="class"
             defaultTheme="system"
             enableSystem
-            themes={['red','ligh','dark']}
+            themes={['red','light','dark',"darkpurple"]}
             disableTransitionOnChange
         >
             <Navbar togglebar={() => setIsOpen(!isToggleBarOpen)} />

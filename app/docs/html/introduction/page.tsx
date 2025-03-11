@@ -88,7 +88,7 @@ return(
   >    
     <Button
       onClick={handlePrevious}
-      className="px-4 py-2"
+      className="px-4 py-2 cursor-pointer"
     >
       Previous
     </Button>
@@ -106,7 +106,7 @@ return(
 >    
     <Button
       onClick={handleNext}
-      className=""
+      className="cursor-pointer"
     >
       Next
     </Button>
