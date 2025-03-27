@@ -18,7 +18,10 @@ import { useState, useEffect } from "react";
 import { Collapsible,CollapsibleTrigger, CollapsibleContent } from "./ui/collapsible"   
 import Link from "next/link"
   
-
+interface SidebarSection {
+  course_id: number;
+  course_contents: []; // Replace `any` with the actual type if known
+}
   
   interface SidebarContent {
     pk_id: number;
@@ -32,19 +35,29 @@ import Link from "next/link"
   }
 
 
-export function AppSidebar() {
+export function AppSidebar({ id, setPkid }: { id: string; setPkid: (pkid: string) => void }) {
     const [sideBarContents,setSideBarContents] = useState<SidebarItem[]>([])
+    console.log("Side bar id is")
+    console.log(id)
+      
+useEffect(() => {
+  if (id) {
+    fetch("/sidebar.json")
+      .then((response) => response.json())
+      .then((data: { sidebar: SidebarSection[] }) => {
+        const foundSection = data.sidebar.find(
+          (section) => section.course_id === parseInt(id as string)
+        );
+        if (foundSection) {
+          setSideBarContents(foundSection.course_contents);
+        }
+        console.log(foundSection);
+      })
+      .catch((error) => console.error("Error Fetching contents", error));
+  }
+}, [id]);
     
-    useEffect (()=>{
-        fetch("/sidebar.json")
-          .then((response)=>response.json())
-          .then((data)=>{
-            setSideBarContents(data.sidebar)
-        })
     
-        .catch((error)=>console.error("Error Fetching contents", error));
-    
-      },[]);
 
       if (!sideBarContents) {
         return <p>Loading...</p>;
@@ -76,13 +89,10 @@ export function AppSidebar() {
                 <div key={content.pk_id}>
                     <CollapsibleContent className="pl-4">
                   <SidebarMenuSub>
-                    <SidebarMenuSubItem>
-                      <Link href={
-                {
-                  pathname: '/docs/html/introduction',
-                  query: { pk_id: content.pk_id },
-                }}
-                className="block hover:bg-secondary-foreground hover:text-primary-foreground  rounded p-1">{content.child_title}</Link>
+                    <SidebarMenuSubItem onClick={()=>setPkid(content.pk_id.toString())}>
+                      {/* <Link href={`/docs/course/${content.pk_id}`}
+                className="block hover:bg-secondary-foreground hover:text-primary-foreground  rounded p-1">{content.child_title}</Link> */}
+                <button className="p-0 cursor-pointer" onClick={()=>setPkid(content.pk_id.toString())} >{content.child_title}</button>
                     </SidebarMenuSubItem>
                   </SidebarMenuSub>
                 </CollapsibleContent>

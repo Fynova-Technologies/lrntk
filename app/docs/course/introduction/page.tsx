@@ -4,13 +4,15 @@ import React from 'react';
 import { Highlight, themes } from 'prism-react-renderer';
 import Image from 'next/image';
 import { Suspense, useState, useEffect } from 'react';
-import { useRouter } from 'next/compat/router';
+// import { useRouter } from 'next/compat/router';
 import { useSearchParams } from 'next/navigation';
 // import Sidebar from "@/components/sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/appsidebar"
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { useParams } from 'next/navigation';
+
 
 
 interface Child {
@@ -43,6 +45,7 @@ interface NavigationProps {
 function SearchComponent({ onPkIdFetched }: { onPkIdFetched: (pkId: string | null) => void }) {
   const searchParams = useSearchParams();
   const pk_id = searchParams.get('pk_id');
+
   useEffect(() => {
     onPkIdFetched(pk_id);
     
@@ -117,17 +120,15 @@ return(
 }
 
 
-function IntroductionPage({ pkId }: { pkId: string | null }) {
-  const router = useRouter();
+function IntroductionPage({ courseid, pkId,setPkId }: { courseid:string|null, pkId: string | null;  setPkId: (pkId: string | null) => void}) {
+  // const router = useRouter();
   const [content, setContent] = useState<Section | null>(null);
-  const [isToggleBarOpen, setIsOpen] = useState(false);
   const [sectioncontent, setSecContent] = useState<ApiResponse>({ sections: [] }); // Initialize with default value
 
-
   useEffect(() => {
-    if (router && !router.isReady) {
-      return;
-    }
+    // if (router && !router.isReady) {
+    //   return;
+    // }
     if (pkId) {
       fetch('/html_intro.json')
         .then((response) => response.json())
@@ -135,11 +136,10 @@ function IntroductionPage({ pkId }: { pkId: string | null }) {
           const foundSection = data.sections.find((sec: Section) => sec.fk_id === parseInt(pkId as string));
           setSecContent(data);
           setContent(foundSection || null);
-          setIsOpen(!isToggleBarOpen)
         })
         .catch((error) => console.error('Error fetching content:', error));
     }
-  }, [router, pkId,isToggleBarOpen]);
+  }, [pkId]);
 
   if (!content) {
     return <p>Loading...</p>;
@@ -149,7 +149,7 @@ function IntroductionPage({ pkId }: { pkId: string | null }) {
     <div className="html-intro">
       <div>
                 <SidebarProvider>
-                <AppSidebar />
+                <AppSidebar id={courseid} setPkid={setPkId} />
                     <div>
                         {/* <Sidebar isOpen={true} /> */}
                         <SidebarTrigger className='p-2 right-0'/>
@@ -253,12 +253,26 @@ function IntroductionPage({ pkId }: { pkId: string | null }) {
 }
 
 export default function Setup() {
+  const params = useParams();
+  const id = Array.isArray(params.id) ? params.id[0] : params.id ?? null; // Ensure id is a string or null
   const [pkId, setPkId] = useState<string | null>(null);
+
+  // Get the ID from the URL
+
+  useEffect(() => {
+    if (id) {
+      console.log("Effect triggered, id:", id);
+      setPkId(id as string);
+    }
+  }, [id]); 
+  
+  console.log(pkId)
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
+      {pkId !== null && <IntroductionPage courseid={id} pkId={pkId} setPkId={setPkId} />}
+      {/* <IntroductionPage pkId={id} /> */}
       <SearchComponent onPkIdFetched={setPkId} />
-      {pkId !== null && <IntroductionPage pkId={pkId} />}
     </Suspense>
   );
 }
