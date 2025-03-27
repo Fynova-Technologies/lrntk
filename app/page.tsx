@@ -44,7 +44,7 @@ export default function Home() {
                 </p> 
               </div>
               <CardFooter>
-              <Link href={"/docs/html"}>
+              <Link href={`/docs/course/${content.id}`}>
                 <Button  className="cursor-pointer">
                   Start Tutorial
                 </Button>
