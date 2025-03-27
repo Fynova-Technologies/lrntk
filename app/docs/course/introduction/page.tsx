@@ -124,12 +124,13 @@ function IntroductionPage({ courseid, pkId,setPkId }: { courseid:string|null, pk
   // const router = useRouter();
   const [content, setContent] = useState<Section | null>(null);
   const [sectioncontent, setSecContent] = useState<ApiResponse>({ sections: [] }); // Initialize with default value
-
+  console.log("introduction page running")
   useEffect(() => {
     // if (router && !router.isReady) {
     //   return;
     // }
-    if (pkId) {
+    
+      console.log('Fetching content for:', pkId);
       fetch('/html_intro.json')
         .then((response) => response.json())
         .then((data: ApiResponse) => {
@@ -138,7 +139,7 @@ function IntroductionPage({ courseid, pkId,setPkId }: { courseid:string|null, pk
           setContent(foundSection || null);
         })
         .catch((error) => console.error('Error fetching content:', error));
-    }
+    
   }, [pkId]);
 
   if (!content) {
@@ -148,11 +149,12 @@ function IntroductionPage({ courseid, pkId,setPkId }: { courseid:string|null, pk
   return (
     <div className="html-intro">
       <div>
-                <SidebarProvider>
-                <AppSidebar id={courseid ?? ''} setPkid={setPkId} />
+                {/* <SidebarProvider>
+                <AppSidebar id={courseid ?? ''} setPkid={setPkId} /> */}
+                
                     <div>
                         {/* <Sidebar isOpen={true} /> */}
-                        <SidebarTrigger className='p-2 right-0'/>
+                        {/* <SidebarTrigger className='p-2 right-0'/> */}
                         <div>
       <h1 className="text-4xl font-bold">{content.title}</h1>
       <hr className="my-4 border-gray-700" />
@@ -245,7 +247,7 @@ function IntroductionPage({ courseid, pkId,setPkId }: { courseid:string|null, pk
       </div>
 
                     </div> 
-                </SidebarProvider>
+                {/* </SidebarProvider> */}
       </div>
       
     </div>
@@ -259,20 +261,17 @@ export default function Setup() {
 
   // Get the ID from the URL
 
-  useEffect(() => {
-    if (id) {
-      console.log("Effect triggered, id:", id);
-      setPkId(id as string);
-    }
-  }, [id]); 
-  
-  console.log(pkId)
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      {pkId !== null && <IntroductionPage courseid={id} pkId={pkId} setPkId={setPkId} />}
+      {/* {pkId !== null && <IntroductionPage courseid={id} pkId={pkId} setPkId={setPkId} />} */}
       {/* <IntroductionPage pkId={id} /> */}
+      <SidebarProvider>
+      <AppSidebar id={id} setPkid={setPkId} />
+      <SidebarTrigger className='p-2 right-0'/>
+      <IntroductionPage courseid={id} pkId={pkId} setPkId={setPkId} />
       <SearchComponent onPkIdFetched={setPkId} />
+      </SidebarProvider>
     </Suspense>
   );
 }

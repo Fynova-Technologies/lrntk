@@ -4,7 +4,7 @@
 // import { Sidebar } from "@/components/ui/sidebar";
 // import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 // import { AppSidebar } from "@/components/appsidebar"
-import Setup from "../introduction/page"
+import Setup from "../../introduction/page"
 // import { useParams } from "next/navigation"
 export default function Html(){
     // const [isToggleBarOpen, setIsOpen] = useState(false);
