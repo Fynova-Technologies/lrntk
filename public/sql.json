@@ -1,0 +1,393 @@
+{
+    "sections": [
+      {
+        "fk_id": 1,
+        "title": "SQL Introduction",
+        "children": [
+          {
+            "type": "text",
+            "content": "SQL (Structured Query Language) is the standard language for managing and manipulating relational databases. It allows you to interact with databases to store, retrieve, update, and delete data. SQL is essential for anyone working with data storage and management systems."
+          },
+          {
+            "type": "text",
+            "content": "SQL was initially developed at IBM in the early 1970s and has become the industry standard for relational database management systems (RDBMS) such as MySQL, PostgreSQL, Oracle, SQL Server, and SQLite."
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "SELECT * FROM Customers;"
+          },
+          {
+            "type": "list",
+            "title": "Why Learn SQL?",
+            "items": [
+              "Fundamental for database interaction",
+              "Used in various applications and industries",
+              "Essential for data analysis and reporting",
+              "Allows efficient data retrieval and manipulation",
+              "Standard language across many database systems"
+            ]
+          },
+          {
+            "type": "text",
+            "content": "SQL operates on tables, which are collections of data organized into rows and columns. Each row represents a record, and each column represents an attribute of that record. Databases can contain multiple tables related to each other."
+          },
+          {
+            "type": "example",
+            "text": "This is a basic SQL query that retrieves all columns and rows from a table named 'Customers'."
+          },
+          {
+            "type": "image",
+            "url": "/sql-intro-example.png",
+            "alt": "An example SQL query and its potential result"
+          }
+        ]
+      },
+      {
+        "fk_id": 2,
+        "title": "SQL Basics: Syntax",
+        "children": [
+          {
+            "type": "text",
+            "content": "SQL syntax consists of commands that are used to perform operations on databases and tables. SQL statements often include keywords, clauses, operators, and expressions. While SQL is generally not case-sensitive for keywords, it's a good practice to write them in uppercase for readability. Table and column names might be case-sensitive depending on the specific database system."
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "SELECT column1, column2\nFROM table_name\nWHERE condition;\n"
+          },
+          {
+            "type": "list",
+            "title": "Fundamental SQL Clauses",
+            "items": [
+              "SELECT → Specifies the columns to retrieve",
+              "FROM → Specifies the table to retrieve data from",
+              "WHERE → Filters the rows based on a condition",
+              "ORDER BY → Sorts the result set",
+              "GROUP BY → Groups rows with the same values in one or more columns",
+              "HAVING → Filters groups based on a condition"
+            ]
+          },
+          {
+            "type": "text",
+            "content": "SQL statements are often terminated with a semicolon `;`. However, some SQL clients might execute single statements without it. Proper formatting with line breaks and indentation makes SQL queries easier to read and understand."
+          },
+          {
+            "type": "example",
+            "text": "Example of a basic SQL query with formatting:"
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "SELECT\n    customer_id,\n    customer_name\nFROM\n    Customers\nWHERE\n    city = 'New York'\nORDER BY\n    customer_name ASC;"
+          },
+          {
+            "type": "text",
+            "content": "SQL supports different types of comments: single-line comments using `--` and multi-line comments using `/* ... */`."
+          },
+          {
+            "type": "list",
+            "title": "SQL Comment Syntax",
+            "items": [
+              "-- This is a single-line comment",
+              "/*\nThis is a\nmulti-line comment\n*/"
+            ]
+          },
+          {
+            "type": "image",
+            "url": "/sql-basics-example.png",
+            "alt": "Basic SQL syntax structure"
+          }
+        ]
+      },
+      {
+        "fk_id": 3,
+        "title": "SQL SELECT Statement",
+        "children": [
+          {
+            "type": "text",
+            "content": "The `SELECT` statement is used to retrieve data from one or more tables. You can select specific columns or all columns using the asterisk `*`. The `FROM` clause specifies the table from which to retrieve the data."
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "-- Select all columns from the Customers table\nSELECT * FROM Customers;\n\n-- Select specific columns from the Customers table\nSELECT customer_name, city FROM Customers;"
+          },
+          {
+            "type": "list",
+            "title": "Key Features of the SELECT Statement",
+            "items": [
+              "Retrieve data from tables",
+              "Specify columns to retrieve",
+              "Use `*` to select all columns",
+              "The `FROM` clause is mandatory"
+            ]
+          },
+          {
+            "type": "text",
+            "content": "You can use aliases to give temporary names to columns or tables using the `AS` keyword. This can make your queries more readable, especially when dealing with complex joins or calculations."
+          },
+          {
+            "type": "example",
+            "text": "Example of using aliases in SELECT:"
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "SELECT customer_name AS Name, city AS Location\nFROM Customers;"
+          },
+          {
+            "type": "text",
+            "content": "The `DISTINCT` keyword is used to retrieve only unique rows from the result set, eliminating duplicate values in the specified columns."
+          },
+          {
+            "type": "list",
+            "title": "Using DISTINCT",
+            "items": [
+              "Returns only unique rows",
+              "Applied to the columns specified in the `SELECT` clause",
+              "Useful for finding unique values in a dataset"
+            ]
+          },
+          {
+            "type": "image",
+            "url": "/sql-select-example.png",
+            "alt": "Examples of SQL SELECT statement usage"
+          }
+        ]
+      },
+      {
+        "fk_id": 4,
+        "title": "SQL WHERE Clause",
+        "children": [
+          {
+            "type": "text",
+            "content": "The `WHERE` clause is used to filter records based on specified conditions. It allows you to retrieve only the rows that meet certain criteria. The `WHERE` clause is placed after the `FROM` clause."
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "SELECT * FROM Customers\nWHERE city = 'London';"
+          },
+          {
+            "type": "list",
+            "title": "Common Comparison Operators in WHERE Clause",
+            "items": [
+              "= (Equal to)",
+              "!= or <> (Not equal to)",
+              "> (Greater than)",
+              "< (Less than)",
+              ">= (Greater than or equal to)",
+              "<= (Less than or equal to)"
+            ]
+          },
+          {
+            "type": "text",
+            "content": "You can combine multiple conditions in the `WHERE` clause using logical operators such as `AND`, `OR`, and `NOT`."
+          },
+          {
+            "type": "example",
+            "text": "Examples of using logical operators in WHERE:"
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "-- Using AND\nSELECT * FROM Customers\nWHERE city = 'Paris' AND country = 'France';\n\n-- Using OR\nSELECT * FROM Customers\nWHERE country = 'USA' OR country = 'Canada';\n\n-- Using NOT\nSELECT * FROM Customers\nWHERE NOT country = 'Germany';"
+          },
+          {
+            "type": "text",
+            "content": "The `BETWEEN` operator is used to select values within a given range (inclusive). The `IN` operator is used to check if a value matches any value in a list. The `LIKE` operator is used for pattern matching using wildcard characters (`%` for any sequence of characters, `_` for a single character)."
+          },
+          {
+            "type": "list",
+            "title": "Special Operators in WHERE Clause",
+            "items": [
+              "BETWEEN value1 AND value2",
+              "IN (value1, value2, ...)",
+              "LIKE 'pattern'",
+              "NOT BETWEEN ... AND ...",
+              "NOT IN (...)",
+              "NOT LIKE 'pattern'"
+            ]
+          },
+          {
+            "type": "image",
+            "url": "/sql-where-example.png",
+            "alt": "Examples of SQL WHERE clause usage"
+          }
+        ]
+      },
+      {
+        "fk_id": 5,
+        "title": "SQL ORDER BY Clause",
+        "children": [
+          {
+            "type": "text",
+            "content": "The `ORDER BY` clause is used to sort the result set of a query based on one or more columns. You can specify whether to sort in ascending (`ASC`, default) or descending (`DESC`) order."
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "-- Order by customer name in ascending order\nSELECT * FROM Customers\nORDER BY customer_name ASC;\n\n-- Order by city in descending order\nSELECT * FROM Customers\nORDER BY city DESC;"
+          },
+          {
+            "type": "list",
+            "title": "Key Features of ORDER BY",
+            "items": [
+              "Sorts the result set",
+              "Uses `ASC` for ascending order (default)",
+              "Uses `DESC` for descending order",
+              "Can order by multiple columns (priority from left to right)"
+            ]
+          },
+          {
+            "type": "text",
+            "content": "When ordering by multiple columns, the sorting is performed based on the first specified column. If there are ties in the first column, the rows are then sorted based on the second column, and so on."
+          },
+          {
+            "type": "example",
+            "text": "Example of ordering by multiple columns:"
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "SELECT * FROM Orders\nORDER BY customer_id ASC, order_date DESC;"
+          },
+          {
+            "type": "text",
+            "content": "The `ORDER BY` clause is always placed at the end of the `SELECT` statement."
+          },
+          {
+            "type": "image",
+            "url": "/sql-orderby-example.png",
+            "alt": "Examples of SQL ORDER BY clause usage"
+          }
+        ]
+      },
+      {
+        "fk_id": 6,
+        "title": "SQL INSERT INTO Statement",
+        "children": [
+          {
+            "type": "text",
+            "content": "The `INSERT INTO` statement is used to add new rows of data into a table. You can insert values into all columns or specify the columns you want to populate."
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "-- Insert into all columns\nINSERT INTO Customers (customer_id, customer_name, city, country)\nVALUES (1, 'John Doe', 'New York', 'USA');\n\n-- Insert into specific columns\nINSERT INTO Customers (customer_name, city)\nVALUES ('Jane Smith', 'London');"
+          },
+          {
+            "type": "list",
+            "title": "Syntax Variations of INSERT INTO",
+            "items": [
+              "Specifying column names and values",
+              "Inserting values into all columns (order matters)",
+              "Inserting multiple rows at once (in some SQL systems)"
+            ]
+          },
+          {
+            "type": "text", 
+            "content": "When inserting into specific columns, make sure the number of values matches the number of specified columns, and the data types are compatible with the column definitions. Columns not specified will typically receive their default values or `NULL` if no default is defined."
+          },
+          {
+            "type": "example",
+            "text": "Example of inserting multiple rows (syntax may vary by database):"
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "-- Example for some SQL systems\nINSERT INTO Products (product_name, price)\nVALUES\n  ('Laptop', 1200),\n  ('Mouse', 25),\n  ('Keyboard', 75);"
+          },
+          {
+            "type": "image",
+            "url": "/sql-insert-into-example.png",
+            "alt": "Examples of SQL INSERT INTO statement usage"
+          }
+        ]
+      },
+      {
+        "fk_id": 7,
+        "title": "SQL UPDATE Statement",
+        "children": [
+          {
+            "type": "text",
+            "content": "The `UPDATE` statement is used to modify existing records in a table. You can update one or more columns for specific rows based on a condition specified in the `WHERE` clause. Be cautious when using `UPDATE` without a `WHERE` clause, as it will update all rows in the table."
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "-- Update the city for a specific customer\nUPDATE Customers\nSET city = 'Berlin'\nWHERE customer_id = 1;\n\n-- Update multiple columns\nUPDATE Customers\nSET city = 'Paris', country = 'France'\nWHERE customer_name = 'Jane Smith';"
+          },
+          {
+            "type": "list",
+            "title": "Key Components of the UPDATE Statement",
+            "items": [
+              "`UPDATE table_name` → Specifies the table to update",
+              "`SET column1 = value1, column2 = value2, ...` → Specifies the columns to update and their new values",
+              "`WHERE condition` → Specifies which rows to update (optional but highly recommended)"
+            ]
+          },
+          {
+            "type": "text", 
+            "content": "You can use expressions and subqueries in the `SET` clause to calculate new values for the columns being updated."
+          },
+          {
+            "type": "example",
+            "text": "Example of updating with an expression:"
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "UPDATE Products\nSET price = price * 1.10 -- Increase price by 10%\nWHERE category = 'Electronics';"
+          },
+          {
+            "type": "image",
+            "url": "/sql-update-example.png",
+            "alt": "Examples of SQL UPDATE statement usage"
+          }
+        ]
+      },
+      {
+        "fk_id": 8,
+        "title": "SQL DELETE Statement",
+        "children": [
+          {
+            "type": "text",
+            "content": "The `DELETE FROM` statement is used to remove existing records from a table. You can delete specific rows based on a condition in the `WHERE` clause. Similar to `UPDATE`, be very careful when using `DELETE FROM` without a `WHERE` clause, as it will delete all rows from the table."
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "-- Delete a specific customer\nDELETE FROM Customers\nWHERE customer_id = 1;\n\n-- Delete all customers from a specific city\nDELETE FROM Customers\nWHERE city = 'London';"
+          },
+          {
+            "type": "list",
+            "title": "Key Components of the DELETE Statement",
+            "items": [
+              "`DELETE FROM table_name` → Specifies the table to delete from",
+              "`WHERE condition` → Specifies which rows to delete (optional but highly recommended)"
+            ]
+          },
+          {
+            "type": "text",
+            "content": "To delete all rows from a table quickly without logging individual row deletions, you can use the `TRUNCATE TABLE` statement (syntax and behavior might vary slightly depending on the database system). `TRUNCATE TABLE` is typically faster than `DELETE FROM` without a `WHERE` clause but cannot be rolled back."
+          },
+          {
+            "type": "example",
+            "text": "Example of TRUNCATE TABLE (use with caution):"
+          },
+          {
+            "type": "code",
+            "language": "sql",
+            "content": "-- Example for some SQL systems\nTRUNCATE TABLE Orders;"
+          },
+          {
+            "type": "image",
+            "url": "/sql-delete-example.png",
+            "alt": "Examples of SQL DELETE statement usage"
+          }
+        ]
+      }
+    ]
+  }

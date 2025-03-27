@@ -1,0 +1,266 @@
+{
+    "sections": [
+      {
+        "fk_id": 1,
+        "title": "Dart Introduction",
+        "children": [
+          {
+            "type": "text",
+            "content": "Dart is a client-optimized, fast, portable programming language developed by Google. It is used to build web, server, desktop, mobile, and embedded applications. Dart is an object-oriented, class-defined, garbage-collected language with C-style syntax."
+          },
+          {
+            "type": "text",
+            "content": "Dart was first released in 2011. It was initially designed as a replacement for JavaScript for web development, but it has since evolved into a versatile language used across various platforms. Flutter, Google's UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase, is built with Dart."
+          },
+          {
+            "type": "code",
+            "language": "dart",
+            "content": "void main() {\n  print('Hello, World!');\n}"
+          },
+          {
+            "type": "list",
+            "title": "Why Learn Dart?",
+            "items": [
+              "Cross-platform development with Flutter",
+              "Modern language with strong typing",
+              "Excellent performance and speed",
+              "Growing community and ecosystem",
+              "Backed by Google"
+            ]
+          },
+          {
+            "type": "text",
+            "content": "Dart code is typically compiled ahead-of-time (AOT) to native machine code for mobile and desktop apps, or just-in-time (JIT) for fast development cycles. Dart also supports web assembly compilation."
+          },
+          {
+            "type": "example",
+            "text": "This is how your Dart program output appears in the console:"
+          },
+          {
+            "type": "image",
+            "url": "/dart-intro-example.png",
+            "alt": "An example Dart console output showing Hello World"
+          }
+        ]
+      },
+      {
+        "fk_id": 2,
+        "title": "Dart Basics",
+        "children": [
+          {
+            "type": "text",
+            "content": "Dart programs start execution in the `main()` function. Dart uses curly braces `{}` to define code blocks. Semicolons `;` are used to terminate statements. Dart supports comments to explain code: single-line comments `//`, and multi-line comments `/* ... */`."
+          },
+          {
+            "type": "code",
+            "language": "dart",
+            "content": "void main() {\n  // This is a single-line comment.\n  /*\n   This is a\n   multi-line comment.\n  */\n  print('Hello, Dart!');\n}"
+          },
+          {
+            "type": "list",
+            "title": "Breaking Down the Basic Dart Structure",
+            "items": [
+              "void main() → The entry point of a Dart program",
+              "{} → Curly braces define a code block",
+              "; → Semicolons terminate statements",
+              "// → Single-line comment",
+              "/* ... */ → Multi-line comment",
+              "print() → Outputs text to the console"
+            ]
+          },
+          {
+            "type": "text",
+            "content": "Dart is a strongly typed language, but it also supports type inference. You can explicitly declare variable types or use `var` to let Dart infer the type. Dart has built-in types like `int`, `double`, `String`, `bool`, `List`, `Map`, and `Set`."
+          },
+          {
+            "type": "example",
+            "text": "Example of Dart variable declaration:"
+          },
+          {
+            "type": "code",
+            "language": "dart",
+            "content": "void main() {\n  int age = 30; // Explicitly declaring an integer\n  String name = 'John Doe'; // Explicitly declaring a String\n  var city = 'New York'; // Type inference: String\n  var pi = 3.14; // Type inference: double\n  print('Name: $name, Age: $age, City: $city, Pi: $pi');\n}"
+          },
+          {
+            "type": "text",
+            "content": "Dart is case-sensitive. Variable names, function names, and class names must be spelled and capitalized consistently. Dart ignores extra whitespace, but proper indentation improves readability."
+          },
+          {
+            "type": "list",
+            "title": "Dart Basic Rules",
+            "items": [
+              "Semicolons terminate statements",
+              "Case-sensitive language",
+              "Proper indentation is important",
+              "Use curly braces for code blocks",
+              "`main()` is the entry point"
+            ]
+          },
+          {
+            "type": "image",
+            "url": "/dart-basics-example.png",
+            "alt": "Basic Dart structure visualization"
+          }
+        ]
+      },
+      {
+        "fk_id": 3,
+        "title": "Dart Variables",
+        "children": [
+          {
+            "type": "text",
+            "content": "Variables in Dart are used to store and manipulate data. You can declare variables using specific data types or the `var` keyword for type inference. Dart supports different types of variables, including numbers, strings, booleans, lists, maps, and sets."
+          },
+          {
+            "type": "code",
+            "language": "dart",
+            "content": "void main() {\n  int age = 25;\n  String name = 'Alice';\n  bool isStudent = true;\n  var salary = 50000.0;\n\n  print('Name: $name, Age: $age, Salary: $salary, Is Student: $isStudent');\n}"
+          },
+          {
+            "type": "list",
+            "title": "Common Dart Data Types",
+            "items": [
+              "int → Integer numbers",
+              "double → Floating-point numbers",
+              "String → Sequence of characters",
+              "bool → Boolean values (true or false)",
+              "List → Ordered collection of objects",
+              "Map → Collection of key-value pairs",
+              "Set → Unordered collection of unique items",
+              "dynamic → Type that can change during runtime",
+              "Object → The superclass of all Dart classes"
+            ]
+          },
+          {
+            "type": "text",
+            "content": "Variables can be declared as `final` or `const`. `final` variables can only be set once, while `const` variables are compile-time constants. Use `final` when you want a variable to have a single value assigned at runtime, and `const` when the value is known at compile time."
+          },
+          {
+            "type": "code",
+            "language": "dart",
+            "content": "void main() {\n  final String appName = 'My App';\n  const double pi = 3.14159;\n\n  print('App Name: $appName, Pi: $pi');\n}"
+          },
+          {
+            "type": "text",
+            "content": "Dart supports string interpolation, allowing you to embed expressions directly within strings using `${expression}` or `$variable`."
+          },
+          {
+            "type": "example",
+            "text": "Example of Dart string interpolation:"
+          },
+          {
+            "type": "code",
+            "language": "dart",
+            "content": "void main() {\n  String firstName = 'John';\n  String lastName = 'Doe';\n  int age = 30;\n\n  print('Full name: $firstName $lastName, Age: $age');\n  print('Next year, $firstName will be ${age + 1} years old.');\n}"
+          },
+          {
+            "type": "image",
+            "url": "/dart-variables-example.png",
+            "alt": "Visualization of Dart variables"
+          }
+        ]
+      },
+      {
+        "fk_id": 4,
+        "title": "Dart Operators",
+        "children": [
+          {
+            "type": "text",
+            "content": "Dart provides a variety of operators to perform operations on variables and values. These operators include arithmetic, relational, logical, assignment, and bitwise operators. Understanding operators is crucial for writing effective Dart code."
+          },
+          {
+            "type": "code",
+            "language": "dart",
+            "content": "void main() {\n  int x = 10;\n  int y = 5;\n\n  print('Sum: ${x + y}');\n  print('Difference: ${x - y}');\n  print('Product: ${x * y}');\n  print('Quotient: ${x / y}');\n  print('Remainder: ${x % y}');\n}"
+          },
+          {
+            "type": "list",
+            "title": "Common Dart Operator Types",
+            "items": [
+              "Arithmetic operators (+, -, *, /, %, ++, --)",
+              "Relational operators (==, !=, >, <, >=, <=)",
+              "Logical operators (&&, ||, !)",
+              "Assignment operators (=, +=, -=, *=, /=, %=)",
+              "Type test operators (is, is!)",
+              "Bitwise operators (&, |, ^, ~, <<, >>)"
+            ]
+          },
+          {
+            "type": "text",
+            "content": "Dart also provides compound assignment operators, which combine an operation with an assignment. For example, `x += y` is equivalent to `x = x + y`."
+          },
+          {
+            "type": "example",
+            "text": "Examples of Dart operators:"
+          },
+          {
+            "type": "code",
+            "language": "dart",
+            "content": "void main() {\n  int a = 5;\n  int b = 10;\n  bool condition1 = a < b;\n  bool condition2 = a == 5 && b > 5;\n\n  a += 5; // a is now 10\n  b *= 2; // b is now 20\n\n  print('a < b: $condition1');\n  print('a == 5 && b > 5: $condition2');\n  print('a: $a, b: $b');\n}"
+          },
+          {
+            "type": "text",
+            "content": "The type test operators `is` and `is!` are used to check the runtime type of an object. This is useful when working with dynamic types or inheritance."
+          },
+          {
+            "type": "code",
+            "language": "dart",
+            "content": "void main() {\n  var value = 'Hello';\n\n  if (value is String) {\n    print('Value is a String');\n  } else {\n    print('Value is not a String');\n  }\n\n  if (value is! int) {\n    print('Value is not an int');\n  }\n}"
+          },
+          {
+            "type": "image",
+            "url": "/dart-operators-example.png",
+            "alt": "Visualization of Dart operators"
+          }
+        ]
+      },
+      {
+        "fk_id": 5,
+        "title": "Dart Control Flow",
+        "children": [
+          {
+            "type": "text",
+            "content": "Dart provides control flow statements to control the execution of code based on conditions or repetitions. These statements include `if-else`, `for` loops, `while` loops, `do-while` loops, and `switch` statements."
+          },
+          {
+            "type": "code",
+            "language": "dart",
+            "content": "void main() {\n  int age = 20;\n\n  if (age >= 18) {\n    print('You are an adult.');\n  } else {\n    print('You are a minor.');\n  }\n}"
+          },
+          {
+            "type": "list",
+            "title": "Common Dart Control Flow Statements",
+            "items": [
+              "if-else → Executes code blocks based on conditions",
+              "for → Iterates over a sequence of values",
+              "while → Executes a code block repeatedly while a condition is true",
+              "do-while → Executes a code block at least once and then repeatedly while a condition is true",
+              "switch → Selects one of several code blocks to execute"
+            ]
+          },
+          {
+            "type": "text",
+            "content": "Dart's `for` loop has a standard form and a `for-in` loop for iterating over collections like lists and sets."
+          },
+          {
+            "type": "example",
+            "text": "Examples of Dart control flow:"
+          },
+          {
+            "type": "text",
+            "content": "Dart also supports `break` and `continue` statements to alter the flow of loops. `break` terminates the loop, while `continue` skips the current iteration and proceeds to the next."
+          },
+          {
+            "type": "code",
+            "language": "dart",
+            "content": "void main() {\n  for (int i = 0; i < 10; i++) {\n    if (i == 5) {\n      break; // Terminate the loop when i is 5\n    }\n    if (i % 2 == 0) {\n      continue; // Skip even numbers\n    }\n    print('i: $i');\n  }\n}"
+          },
+          {
+            "type": "image",
+            "url": "/dart-control-flow-example.png",
+            "alt": "Visualization of Dart control flow"
+          }
+        ]
+      }
+    ]
+}

@@ -5,7 +5,6 @@ import { Highlight, themes } from 'prism-react-renderer';
 import Image from 'next/image';
 import { Suspense, useState, useEffect } from 'react';
 // import { useRouter } from 'next/compat/router';
-import { useSearchParams } from 'next/navigation';
 // import Sidebar from "@/components/sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/appsidebar"
@@ -41,17 +40,6 @@ interface NavigationProps {
   content: ApiResponse; // Define the type for content
 }
 
-// Move Search into a separate component wrapped with Suspense
-function SearchComponent({ onPkIdFetched }: { onPkIdFetched: (pkId: string | null) => void }) {
-  const searchParams = useSearchParams();
-  const pk_id = searchParams.get('pk_id');
-
-  useEffect(() => {
-    onPkIdFetched(pk_id);
-    
-  }, [pk_id, onPkIdFetched]);
-  return null; // This component doesn't render anything
-}
 
 
 function Navigation({ currentId , content }:  NavigationProps) {
@@ -120,17 +108,19 @@ return(
 }
 
 
-function IntroductionPage({ courseid, pkId,setPkId }: { courseid:string|null, pkId: string | null;  setPkId: (pkId: string | null) => void}) {
-  // const router = useRouter();
+function IntroductionPage({  pkId }: { courseid:string|null, pkId: string | null;  setPkId: (pkId: string | null) => void}) {
+  const params = useParams();
+  const course_Name = params.Title;
   const [content, setContent] = useState<Section | null>(null);
   const [sectioncontent, setSecContent] = useState<ApiResponse>({ sections: [] }); // Initialize with default value
-  console.log("introduction page running")
+  console.log("introduction psetPkIdage running: ", course_Name)
   useEffect(() => {
     // if (router && !router.isReady) {
     //   return;
     // }
     
-      console.log('Fetching content for:', pkId);
+      console.log('COurse name is :', course_Name);
+      if(course_Name==="HTML-Tutorials"){
       fetch('/html_intro.json')
         .then((response) => response.json())
         .then((data: ApiResponse) => {
@@ -138,9 +128,37 @@ function IntroductionPage({ courseid, pkId,setPkId }: { courseid:string|null, pk
           setSecContent(data);
           setContent(foundSection || null);
         })
+        .catch((error) => console.error('Error fetching content:', error));}
+        else if(course_Name==="Dart-Tutorial"){
+          fetch('/dart.json')
+        .then((response) => response.json())
+        .then((data: ApiResponse) => {
+          const foundSection = data.sections.find((sec: Section) => sec.fk_id === parseInt(pkId as string));
+          setSecContent(data);
+          setContent(foundSection || null);
+        })
         .catch((error) => console.error('Error fetching content:', error));
+        }else if(course_Name==="React-Tutorials"){
+          fetch('/react.json')
+        .then((response) => response.json())
+        .then((data: ApiResponse) => {
+          const foundSection = data.sections.find((sec: Section) => sec.fk_id === parseInt(pkId as string));
+          setSecContent(data);
+          setContent(foundSection || null);
+        })
+        .catch((error) => console.error('Error fetching content:', error));
+        }else if(course_Name==="SQL-Tutorials"){
+          fetch('/sql.json')
+        .then((response) => response.json())
+        .then((data: ApiResponse) => {
+          const foundSection = data.sections.find((sec: Section) => sec.fk_id === parseInt(pkId as string));
+          setSecContent(data);
+          setContent(foundSection || null);
+        })
+        .catch((error) => console.error('Error fetching content:', error));
+        }
     
-  }, [pkId]);
+  }, [pkId,course_Name]);
 
   if (!content) {
     return <p>Loading...</p>;
@@ -267,10 +285,9 @@ export default function Setup() {
       {/* {pkId !== null && <IntroductionPage courseid={id} pkId={pkId} setPkId={setPkId} />} */}
       {/* <IntroductionPage pkId={id} /> */}
       <SidebarProvider>
-      <AppSidebar id={id} setPkid={setPkId} />
+      <AppSidebar id={id ?? ''} setPkid={setPkId} />
       <SidebarTrigger className='p-2 right-0'/>
       <IntroductionPage courseid={id} pkId={pkId} setPkId={setPkId} />
-      <SearchComponent onPkIdFetched={setPkId} />
       </SidebarProvider>
     </Suspense>
   );
