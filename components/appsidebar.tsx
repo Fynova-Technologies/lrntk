@@ -20,7 +20,7 @@ import Link from "next/link"
   
 interface SidebarSection {
   course_id: number;
-  course_contents: []; // Replace `any` with the actual type if known
+  course_contents: SidebarItem[]; // Define the correct type for course_contents
 }
   
   interface SidebarContent {
@@ -50,12 +50,13 @@ useEffect(() => {
         );
         if (foundSection) {
           setSideBarContents(foundSection.course_contents);
+          setPkid(foundSection.course_contents?.[0]?.contents?.[0]?.pk_id?.toString() ?? "");
         }
         console.log(foundSection);
       })
       .catch((error) => console.error("Error Fetching contents", error));
   }
-}, [id]);
+}, [id, setPkid]);
     
     
 

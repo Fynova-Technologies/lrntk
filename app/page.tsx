@@ -16,6 +16,7 @@ interface CardContent{
 }
 
 
+
 export default function Home() {
   const [contents, setContents] = useState<CardContent[]>([])
 
@@ -44,7 +45,7 @@ export default function Home() {
                 </p> 
               </div>
               <CardFooter>
-              <Link href={`/docs/course/${content.id}`}>
+              <Link href={`/docs/course/${content.card_Title}/${content.id}`}>
                 <Button  className="cursor-pointer">
                   Start Tutorial
                 </Button>
