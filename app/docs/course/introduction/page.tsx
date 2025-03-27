@@ -167,17 +167,13 @@ function IntroductionPage({  pkId }: { courseid:string|null, pkId: string | null
   return (
     <div className="html-intro">
       <div>
-                {/* <SidebarProvider>
-                <AppSidebar id={courseid ?? ''} setPkid={setPkId} /> */}
                 
                     <div>
-                        {/* <Sidebar isOpen={true} /> */}
-                        {/* <SidebarTrigger className='p-2 right-0'/> */}
+
                         <div>
       <h1 className="text-4xl font-bold">{content.title}</h1>
       <hr className="my-4 border-gray-700" />
 
-      {/* Render Sections Dynamically */}
       <Suspense fallback={<div>Loading...</div>}>
         {content.children.map((section, index) => {
           switch (section.type) {

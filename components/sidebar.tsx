@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-import SearchBar from "./Search";
+// import SearchBar from "./Search";
 
 // Define props type
 interface SidebarProps {
@@ -68,7 +68,7 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
     >
 
         <div className="w-64">
-          <SearchBar courses={sideBarContents} />
+          {/* <SearchBar courses={sideBarContents} /> */}
         </div>
       {/* Docs Section */}
       <div className="mb-32">
