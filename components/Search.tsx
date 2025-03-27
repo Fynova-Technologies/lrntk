@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { Input } from "./ui/input";
 
 
@@ -20,13 +19,13 @@ interface SidebarItem {
 
 interface SearchBarProps {
   courses: SidebarItem[];
+  setPkid: (pkid: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> =  ({courses})=>{
+const SearchBar: React.FC<SearchBarProps> =  ({courses,setPkid})=>{
     const [SearchIsOpen,setSearchOpen] = useState(false)
     const [query,setQuery] = useState("")
     const [filteredCourses, setFilteredCourses] = useState<SidebarContent[]>([]); // Corrected line
-    const router = useRouter();
 
 
     
@@ -50,7 +49,7 @@ const SearchBar: React.FC<SearchBarProps> =  ({courses})=>{
       }, [query,courses]);
     
       const handleSelectCourse = (pk_id:number) => {
-        router.push(`/docs/html/introduction?pk_id=${pk_id}`);
+        setPkid(pk_id.toString());
       };
 
     return(

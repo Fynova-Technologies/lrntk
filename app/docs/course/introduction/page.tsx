@@ -149,7 +149,7 @@ function IntroductionPage({ courseid, pkId,setPkId }: { courseid:string|null, pk
     <div className="html-intro">
       <div>
                 <SidebarProvider>
-                <AppSidebar id={courseid} setPkid={setPkId} />
+                <AppSidebar id={courseid ?? ''} setPkid={setPkId} />
                     <div>
                         {/* <Sidebar isOpen={true} /> */}
                         <SidebarTrigger className='p-2 right-0'/>

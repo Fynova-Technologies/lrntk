@@ -69,7 +69,7 @@ useEffect(() => {
              <h2 className="text-lg font-semibold">Tutorials</h2>
             </SidebarHeader>
             <div className="w-64 z-50">
-                <SearchBar courses={sideBarContents} />
+                <SearchBar courses={sideBarContents} setPkid={setPkid} />
             </div>
             <SidebarContent>
             <SidebarMenu className="">
