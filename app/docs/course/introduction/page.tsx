@@ -216,8 +216,11 @@ function IntroductionPage({  pkId }: { courseid:string|null, pkId: string | null
                             background: '#282a36',
                           }}
                         >
-                          <button onClick={()=>copyToClipboard(section.content)} className="p-2 cursor-pointer bg-black text-amber-50 flex items-end justify-end float-right rounded-2xl">Copy</button>
-                          {isCopied && <div>Code copied!</div>}
+                          <div className='flex flex-col float-right'>
+                            <button onClick={()=>copyToClipboard(section.content)} className="p-2 cursor-pointer bg-black text-amber-50 float-right rounded-2xl">Copy</button>
+                            {isCopied && <div className="text-amber-50 float-right rounded-2xl">Code copied!</div>}
+                          </div>
+                          
                           {tokens.map((line, i) => {
                             const lineProps = getLineProps({ line });
                             return (
