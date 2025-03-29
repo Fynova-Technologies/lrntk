@@ -111,6 +111,15 @@ return(
 function IntroductionPage({  pkId }: { courseid:string|null, pkId: string | null;  setPkId: (pkId: string | null) => void}) {
   const params = useParams();
   const course_Name = params.Title;
+  const [isCopied, setIsCopied] = useState(false);
+  const copyToClipboard = (codeString: string | undefined) => {
+    if (codeString) {
+      navigator.clipboard.writeText(codeString);
+    }
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 1000);
+  };
+  
   const [content, setContent] = useState<Section | null>(null);
   const [sectioncontent, setSecContent] = useState<ApiResponse>({ sections: [] }); // Initialize with default value
   console.log("introduction psetPkIdage running: ", course_Name)
@@ -163,6 +172,8 @@ function IntroductionPage({  pkId }: { courseid:string|null, pkId: string | null
   if (!content) {
     return <p>Loading...</p>;
   }
+  
+  
 
   return (
     <div className="html-intro">
@@ -187,9 +198,11 @@ function IntroductionPage({  pkId }: { courseid:string|null, pkId: string | null
             case 'code':
               return (
                 <div key={index} className="p-10">
-                  <Highlight theme={themes.dracula} code={section.content || ''} language="html">
+                  
+                  <Highlight theme={themes.dracula} code={section.content || ''} language="Html">
                     {({ className, style, tokens, getLineProps, getTokenProps }) => (
                       <div style={{ width: '90%', overflowX: 'auto' }}>
+                        
                         <pre
                           className={className}
                           style={{
@@ -203,6 +216,8 @@ function IntroductionPage({  pkId }: { courseid:string|null, pkId: string | null
                             background: '#282a36',
                           }}
                         >
+                          <button onClick={()=>copyToClipboard(section.content)} className="p-2 cursor-pointer bg-black text-amber-50 flex items-end justify-end float-right rounded-2xl">Copy</button>
+                          {isCopied && <div>Code copied!</div>}
                           {tokens.map((line, i) => {
                             const lineProps = getLineProps({ line });
                             return (
