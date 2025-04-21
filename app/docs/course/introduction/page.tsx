@@ -10,8 +10,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/appsidebar"
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { useParams } from 'next/navigation';
-
+import { useParams,useRouter } from 'next/navigation';
 
 
 interface Child {
@@ -44,7 +43,8 @@ interface NavigationProps {
 
 function Navigation({ currentId , content }:  NavigationProps) {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-
+  
+  
   useEffect(() => {
     const index = content.sections.findIndex((content) => content.fk_id === currentId);
     if (index !== -1) {
@@ -108,9 +108,10 @@ return(
 }
 
 
-function IntroductionPage({  pkId }: { courseid:string|null, pkId: string | null;  setPkId: (pkId: string | null) => void}) {
+function  IntroductionPage({  pkId }: { courseid:string|null, pkId: string | null;  setPkId: (pkId: string | null) => void}) {
   const params = useParams();
   const course_Name = params.Title;
+  const router = useRouter();
   const [isCopied, setIsCopied] = useState(false);
   const copyToClipboard = (codeString: string | undefined) => {
     if (codeString) {
@@ -119,7 +120,7 @@ function IntroductionPage({  pkId }: { courseid:string|null, pkId: string | null
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 1000);
   };
-  
+  const [isValidated, setIsValidated] = useState(false);
   const [content, setContent] = useState<Section | null>(null);
   const [sectioncontent, setSecContent] = useState<ApiResponse>({ sections: [] }); // Initialize with default value
   console.log("introduction psetPkIdage running: ", course_Name)
@@ -129,45 +130,114 @@ function IntroductionPage({  pkId }: { courseid:string|null, pkId: string | null
     // }
     
       console.log('COurse name is :', course_Name);
-      if(course_Name==="HTML-Tutorials"){
-      fetch('/html_intro.json')
-        .then((response) => response.json())
-        .then((data: ApiResponse) => {
-          const foundSection = data.sections.find((sec: Section) => sec.fk_id === parseInt(pkId as string));
-          setSecContent(data);
-          setContent(foundSection || null);
-        })
-        .catch((error) => console.error('Error fetching content:', error));}
-        else if(course_Name==="Dart-Tutorial"){
-          fetch('/dart.json')
-        .then((response) => response.json())
-        .then((data: ApiResponse) => {
-          const foundSection = data.sections.find((sec: Section) => sec.fk_id === parseInt(pkId as string));
-          setSecContent(data);
-          setContent(foundSection || null);
-        })
-        .catch((error) => console.error('Error fetching content:', error));
-        }else if(course_Name==="React-Tutorials"){
-          fetch('/react.json')
-        .then((response) => response.json())
-        .then((data: ApiResponse) => {
-          const foundSection = data.sections.find((sec: Section) => sec.fk_id === parseInt(pkId as string));
-          setSecContent(data);
-          setContent(foundSection || null);
-        })
-        .catch((error) => console.error('Error fetching content:', error));
-        }else if(course_Name==="SQL-Tutorials"){
-          fetch('/sql.json')
-        .then((response) => response.json())
-        .then((data: ApiResponse) => {
-          const foundSection = data.sections.find((sec: Section) => sec.fk_id === parseInt(pkId as string));
-          setSecContent(data);
-          setContent(foundSection || null);
-        })
-        .catch((error) => console.error('Error fetching content:', error));
+      // if(course_Name==="HTML-Tutorials"){
+      // fetch('/html_intro.json')
+      //   .then((response) => response.json())
+      //   .then((data: ApiResponse) => {
+      //     const foundSection = data.sections.find((sec: Section) => sec.fk_id === parseInt(pkId as string));
+      //     setSecContent(data);
+      //     setContent(foundSection || null);
+      //   })
+      //   .catch((error) => console.error('Error fetching content:', error));}
+      //   else if(course_Name==="Dart-Tutorial"){
+      //     fetch('/dart.json')
+      //   .then((response) => response.json())
+      //   .then((data: ApiResponse) => {
+      //     const foundSection = data.sections.find((sec: Section) => sec.fk_id === parseInt(pkId as string));
+      //     setSecContent(data);
+      //     setContent(foundSection || null);
+      //   })
+      //   .catch((error) => console.error('Error fetching content:', error));
+      //   }else if(course_Name==="React-Tutorials"){
+      //     fetch('/react.json')
+      //   .then((response) => response.json())
+      //   .then((data: ApiResponse) => {
+      //     const foundSection = data.sections.find((sec: Section) => sec.fk_id === parseInt(pkId as string));
+      //     setSecContent(data);
+      //     setContent(foundSection || null);
+      //   })
+      //   .catch((error) => console.error('Error fetching content:', error));
+      //   }else if(course_Name==="SQL-Tutorials"){
+      //     fetch('/sql.json')
+      //   .then((response) => response.json())
+      //   .then((data: ApiResponse) => {
+      //     const foundSection = data.sections.find((sec: Section) => sec.fk_id === parseInt(pkId as string));
+      //     setSecContent(data);
+      //     setContent(foundSection || null);
+      //   })
+      //   .catch((error) => console.error('Error fetching content:', error));
+      //   }
+
+
+      const fetchContent = async () => {
+        try {
+          // Step 1: Fetch home.json to get course name
+          const homeRes = await fetch('/home.json');
+          const homeData = await homeRes.json();
+          const actualCourse = homeData.card.find(
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (card: any) => card.id === parseInt(params.id as string)
+          )?.card_Title;
+      
+          // Step 2: If URL course doesn't match actual course, redirect
+          if (actualCourse && actualCourse !== course_Name) {
+            router.replace(`/docs/course/${actualCourse}/${params.id}`);
+          } else {
+            setIsValidated(true); // ✅ Now safe to load content
+          }
+        
+  
+          const courseCard = homeData.card.find(
+            (card: { id: number; card_Title: string }) => card.id === parseInt(params.id as string)
+          );
+  
+          if (!courseCard) {
+            console.error('Course not found for id:', pkId);
+            setContent(null);
+            return;
+          }
+  
+          const courseName = courseCard.card_Title;
+  
+          // Step 2: Map course name to file path
+          const courseFileMap: Record<string, string> = {
+            'HTML-Tutorials': '/html_intro.json',
+            'Dart-Tutorial': '/dart.json',
+            'React-Tutorials': '/react.json',
+            'SQL-Tutorials': '/sql.json',
+          };
+  
+          const courseFile = courseFileMap[courseName];
+          if (!courseFile) {
+            console.error('Course file not found for:', courseName);
+            setContent(null);
+            return;
+          }
+  
+          // Step 3: Fetch course content
+          const courseRes = await fetch(courseFile);
+          const courseData = await courseRes.json();
+  
+          const section = courseData.sections.find(
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (sec: any) => sec.fk_id === parseInt(pkId as string)
+          );
+  
+          setSecContent(courseData);
+          setContent(section || null);
+        } catch (err) {
+          console.error('Error fetching content:', err);
+          setContent(null);
         }
-    
-  }, [pkId,course_Name]);
+      };
+  
+      fetchContent();
+}, [pkId, course_Name, params.id, router]);
+
+if (!isValidated) {
+  return <div>Validating route...</div>; // You can show a loader/spinner here
+}
+
 
   if (!content) {
     return <p>Loading...</p>;
