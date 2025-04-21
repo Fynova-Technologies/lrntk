@@ -288,6 +288,9 @@ function IntroductionPage({  pkId }: { courseid:string|null, pkId: string | null
 
 export default function Setup() {
   const params = useParams();
+  console.log(params)
+  const title = params.Title;
+  console.log(title)
   const id = Array.isArray(params.id) ? params.id[0] : params.id ?? null; // Ensure id is a string or null
   const [pkId, setPkId] = useState<string | null>(null);
 
