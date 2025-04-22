@@ -27,24 +27,40 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+     <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex min-h-screen flex-col bg-white text-black font-sans`}
       >
         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            themes={['red','light','dark',"darkpurple"]}
-            disableTransitionOnChange
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          themes={['red', 'light', 'dark', 'darkpurple']}
+          disableTransitionOnChange
         >
-            <Navbar togglebar={() => setIsOpen(!isToggleBarOpen)} />
-
-            {/* Sidebar & Main Content */}
-            <div className="flex">
-              {/* <Sidebar isOpen={isToggleBarOpen} /> */}
-              
-              <main className="md:ml-64 p-6 w-full mt-32"> {children}</main>
+          {/* Navbar with fixed positioning */}
+          <div className="container">
+            <div className="Navbar">
+              <Navbar
+              togglebar={() => setIsOpen(!isToggleBarOpen)}/>
             </div>
+            <div className="content flex flex-col min-h-screen">
+            <div className="pt-[height-of-navbar] flex flex-1">
+              {/* Sidebar (uncomment if needed) */}
+              {/* <Sidebar isOpen={isToggleBarOpen} /> */}
+bo 
+              {/* Main content with responsive padding */}
+              <main className="p-6 w-full md:ml-64">
+                {children}
+              </main>
+            </div>
+          </div>
+
+          </div>
+          
+          
+
+          {/* Main Content with padding to account for Navbar height */}
+          
         </ThemeProvider>
       </body>
     </html>
