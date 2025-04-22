@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex min-h-screen flex-col bg-white text-black font-sans`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
         <ThemeProvider
           attribute="class"
@@ -38,18 +38,18 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {/* Navbar with fixed positioning */}
-          <div className="container">
+          <div className="h-screen w-full flex flex-col">
             <div className="Navbar">
               <Navbar
               togglebar={() => setIsOpen(!isToggleBarOpen)}/>
             </div>
-            <div className="content flex flex-col min-h-screen">
-            <div className="pt-[height-of-navbar] flex flex-1">
+            <div className="w-full">
+            <div className="pt-32">
               {/* Sidebar (uncomment if needed) */}
               {/* <Sidebar isOpen={isToggleBarOpen} /> */}
-bo 
+
               {/* Main content with responsive padding */}
-              <main className="p-6 w-full md:ml-64">
+              <main className="md:p-24 p-12 w-full ">
                 {children}
               </main>
             </div>

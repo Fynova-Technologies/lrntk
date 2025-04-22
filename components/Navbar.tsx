@@ -9,7 +9,7 @@ interface NavbarProps {
 
 const Navbar = ({ togglebar }: NavbarProps) => {
   return (
-    <nav className="w-full fixed bg-gray-800 text-white top-0 left-0">
+    <nav className="w-full fixed bg-gray-800 text-white top-0 left-0 h-32">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex space-x-10">
           <button

@@ -54,7 +54,7 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
   return (
     <aside
       className={`
-      fixed left-0 top-32
+      fixed left-0 
       h-screen bg-gray-900 text-white p-4 
       w-64 transform transition-transform duration-300 ease-in-out 
       ${

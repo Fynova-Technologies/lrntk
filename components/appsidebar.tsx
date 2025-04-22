@@ -65,7 +65,7 @@ useEffect(() => {
       }
 
     return (
-        <Sidebar className="">
+        <Sidebar className="pt-32 border-none">
             <SidebarHeader className="">
              <h2 className="text-lg font-semibold">Tutorials</h2>
             </SidebarHeader>
